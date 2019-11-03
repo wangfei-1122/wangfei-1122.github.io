@@ -8,12 +8,14 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Mysql约束详解 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="约束非空约束(not null): 在定义数据表的时候,默认情况下所有字段是允许为空值的,如果需要禁止字段为空,那么就需要在创建表的时候显示指定. 指定一个字段不为空的方式就是在字段定义后加上 not null. 非空约束不因对通过insert语句插入的数据起作用,而且对于使用update语句进行更新是也起作用.唯一约束(unique): 它用于防止一个特定的列中两个记录具有一定的值,如果希望一个">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Mysql约束详解">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;03&#x2F;Mysql%E7%BA%A6%E6%9D%9F%E8%AF%A6%E8%A7%A3&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="约束非空约束(not null): 在定义数据表的时候,默认情况下所有字段是允许为空值的,如果需要禁止字段为空,那么就需要在创建表的时候显示指定. 指定一个字段不为空的方式就是在字段定义后加上 not null. 非空约束不因对通过insert语句插入的数据起作用,而且对于使用update语句进行更新是也起作用.唯一约束(unique): 它用于防止一个特定的列中两个记录具有一定的值,如果希望一个">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-03T06:32:49.097Z">
+<meta property="og:updated_time" content="2019-11-03T06:37:52.281Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -170,7 +172,40 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>约束<br>非空约束(not null):</p>
+<p>在定义数据表的时候,默认情况下所有字段是允许为空值的,如果需要禁止字段为空,那么就需要在创建表的时候显示指定.</p>
+<p>指定一个字段不为空的方式就是在字段定义后加上 not null.</p>
+<p>非空约束不因对通过insert语句插入的数据起作用,而且对于使用update语句进行更新是也起作用.<br>唯一约束(unique):</p>
+<p>它用于防止一个特定的列中两个记录具有一定的值,如果希望一个字段在表中的值是唯一的.那么就可以将唯一约束设置到这个字段上,设置方式就是在字段定义后面加上unique,也可以在加上非空约束.</p>
+<p>唯一约束可以添加到多个字段当中,也就是一张表中可以存在多个唯一约束,但是这样的单字段约束只能约束’’字段A的值在表中不重复’’,’’字段B的值在表中不重复’’,却不能约束字段A的值和字段B的值同时重复,复合唯一约束是建立在多个字段上的约束,被约束的字段不能同时重复,就是在表中复合唯一约束的两个字段,不能同时出现第二次.比如,一条数据是 (1,2),就不能再出现一条同时包含(1,2)的数据.</p>
+<p>语法:</p>
+<p>constraint 约束的名字 unique (字段A,字段B)</p>
+<p>给建好的表添加约束:</p>
+<p>alter table 表名 add constraint 约束名 unique(字段1,字段2);</p>
+<p>删除约束:</p>
+<p>alter table 表名drop index 约束名;<br>主键约束(primary key)</p>
+<p>主键约束是非常重要的,而且主键约束是外键关联的基础条件,主键约束为表之间的关联提供了链接点.</p>
+<p>主键必须能够唯一标识一条记录,也就是主键字段中的值必须是唯一的,而且不能包含null值,也可以说主键约束是唯一约束和非空约束的组合.定义主键非常简单.</p>
+<p>语法:</p>
+<p>在字段定义后 添加primary key 关键字就行.</p>
+<p>除了这种单一字段组成的主键之外,还可以有多个字段来组成主键,这样的主键被称为复合主键或者联合主键.复合主键的定义个复合唯一约束的定义类似.</p>
+<p>语法:</p>
+<p>constraint 主键名 primary key(字段1,字段2),</p>
+<p>尽管在创建表的时候定义一个主键是好习惯,但是如果表创建了没有定义主键,那么也可以在后面添加主键,不过通过这种方式添加主键有一个附件条件,那就是组成的主键的字段必须包含 not null约束,如果没有添加非空约束的字段上创建主键,系统就会报错.</p>
+<p>语法:</p>
+<p>alter table 表名 add constraint 主键名 primary key(字段1,字段2);</p>
+<p>删除主键:</p>
+<p>alter table 表名 drop primary key;</p>
+<p>自增列（主要用在给主键产生一个唯一值）<br>?<br>1<br>2<br>3<br>4</p>
+<p>create table course(<br>    cid int primary key auto_increment, /<em>产生一个自动增长的值</em>/<br>    cname varchar(10)<br>);<br>?<br>1<br>2<br>3<br>4<br>5</p>
+<p>不从1开始的例子<br>create table course(<br>    cid int primary key auto_increment, /<em>产生一个自动增长的值</em>/<br>    cname varchar(10)<br>) auto_increment=1000;</p>
+<p>注意:</p>
+<p>使用了自增赋值,就不要手动赋值,否则就会使用手动赋的值.<br>外键约束(foreign key)</p>
+<p>当一些信息在表中重复出现的时候,我们就要考虑将他们提取到另外一张表中,然后在原表中引用新创建表中的数据.</p>
+<p>在删除一个表中的数据的时候,如果有其他的表存在外键关系,那么就会删除失败.必须把所有有关的数据删除之后,才能删除成功.</p>
+<p>语法:</p>
+<p>foreign key (外键字段) references 外键表名(外键表中的主键字段)</p>
+
       
 
       
