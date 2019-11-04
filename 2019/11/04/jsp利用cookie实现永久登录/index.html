@@ -6,13 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>jsp利用cookie实现永久登录 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+  <meta name="description" content="&amp;lt;%@ page language=”java” pageEncoding=”UTF-8” isErrorPage=”false” %&amp;gt;&amp;lt;jsp:directive.page import=”java.security.MessageDigest”&#x2F;&amp;gt;&amp;lt;%!    &#x2F;&#x2F; 密钥    private static final String KEY = “:cookie@">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jsp利用cookie实现永久登录">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;04&#x2F;jsp%E5%88%A9%E7%94%A8cookie%E5%AE%9E%E7%8E%B0%E6%B0%B8%E4%B9%85%E7%99%BB%E5%BD%95&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="&amp;lt;%@ page language=”java” pageEncoding=”UTF-8” isErrorPage=”false” %&amp;gt;&amp;lt;jsp:directive.page import=”java.security.MessageDigest”&#x2F;&amp;gt;&amp;lt;%!    &#x2F;&#x2F; 密钥    private static final String KEY = “:cookie@">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-04T01:26:59.794Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -149,16 +152,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-jsp利用cookie实现永久登录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-jsp利用cookie实现永久登录" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/04/jsp%E5%88%A9%E7%94%A8cookie%E5%AE%9E%E7%8E%B0%E6%B0%B8%E4%B9%85%E7%99%BB%E5%BD%95/">jsp利用cookie实现永久登录</a>
+    <h1 class="article-title" itemprop="name">
+      jsp利用cookie实现永久登录
     </h1>
   
 
@@ -324,6 +325,27 @@ if(account != null &amp;&amp; ssid != null){
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -331,16 +353,75 @@ if(account != null &amp;&amp; ssid != null){
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/04/jsp%E5%88%A9%E7%94%A8cookie%E5%AE%9E%E7%8E%B0%E6%B0%B8%E4%B9%85%E7%99%BB%E5%BD%95/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/04/jsp%E5%88%A9%E7%94%A8cookie%E5%AE%9E%E7%8E%B0%E6%B0%B8%E4%B9%85%E7%99%BB%E5%BD%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/04/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%94%E4%B8%AA%E6%AD%A5%E9%AA%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ajax请求的五个步骤</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -360,872 +441,14 @@ if(account != null &amp;&amp; ssid != null){
 
 
 
-
   
-    <article id="post-ajax请求的五个步骤" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/04/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%94%E4%B8%AA%E6%AD%A5%E9%AA%A4/">ajax请求的五个步骤</a>
-    </h1>
   
 
-        
-        <a href="/2019/11/04/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%94%E4%B8%AA%E6%AD%A5%E9%AA%A4/" class="archive-article-date">
-  	<time datetime="2019-11-04T01:06:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>/第一步，创建XMLHttpRequest对象<br>var xmlHttp = new XMLHttpRequest();<br>function CommentAll() {<br>    //第二步，注册回调函数<br>    xmlHttp.onreadystatechange =callback1;<br>    //{<br>    //    if (xmlHttp.readyState == 4)<br>    //        if (xmlHttp.status == 200) {<br>    //            var responseText = xmlHttp.responseText;</p>
-<pre><code>//        }
-//}
-//第三步，配置请求信息，open(),get
-//get请求下参数加在url后，.ashx?methodName = GetAllComment&amp;str1=str1&amp;str2=str2
-xmlHttp.open(&quot;post&quot;, &quot;/ashx/myzhuye/Detail.ashx?methodName=GetAllComment&quot;, true);
-
-//post请求下需要配置请求头信息
-//xmlHttp.setRequestHeader(&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot;);
-
-//第四步，发送请求,post请求下，要传递的参数放这
-xmlHttp.send(&quot;methodName = GetAllComment&amp;str1=str1&amp;str2=str2&quot;);//&quot;</code></pre><p>}<br>//第五步，创建回调函数<br>function callback1() {<br>    if (xmlHttp.readyState == 4)<br>        if (xmlHttp.status == 200) {<br>            //取得返回的数据<br>            var data = xmlHttp.responseText;<br>            //json字符串转为json格式<br>            data = eval(data);<br>            $.each(data,<br>                function(i, v) {<br>                    alert(v);<br>                });<br>        }<br>}</p>
-<p>//后台方法<br> private  void GetAllComment(HttpContext context)<br>        {</p>
-<pre><code>    //Params可以取得get与post方式传递过来的值。
-    string methodName = context.Request.Params[&quot;methodName&quot;];
-
-    //QueryString只能取得get方式传递过来的值。
-    string str1 = context.Request.Form[&quot;str1&quot;];
-
-    //取得httpRequest传来的值，包括get与post方式
-    string str2 = context.Request[&quot;str2&quot;];
-
-    List&lt;string&gt; comments = new List&lt;string&gt;();
-
-    comments.Add(methodName);
-
-    comments.Add(str1);
-
-    comments.Add(str2);
-
-
-    //ajax接受的是json类型，需要把返回的数据转给json格式
-    string commentsJson = new JavaScriptSerializer().Serialize(comments);
-    context.Response.Write(commentsJson);
-}</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/04/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%94%E4%B8%AA%E6%AD%A5%E9%AA%A4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mysql约束详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/03/Mysql%E7%BA%A6%E6%9D%9F%E8%AF%A6%E8%A7%A3/">Mysql约束详解</a>
-    </h1>
   
 
-        
-        <a href="/2019/11/03/Mysql%E7%BA%A6%E6%9D%9F%E8%AF%A6%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2019-11-03T06:32:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>约束<br>非空约束(not null):</p>
-<p>在定义数据表的时候,默认情况下所有字段是允许为空值的,如果需要禁止字段为空,那么就需要在创建表的时候显示指定.</p>
-<p>指定一个字段不为空的方式就是在字段定义后加上 not null.</p>
-<p>非空约束不因对通过insert语句插入的数据起作用,而且对于使用update语句进行更新是也起作用.<br>唯一约束(unique):</p>
-<p>它用于防止一个特定的列中两个记录具有一定的值,如果希望一个字段在表中的值是唯一的.那么就可以将唯一约束设置到这个字段上,设置方式就是在字段定义后面加上unique,也可以在加上非空约束.</p>
-<p>唯一约束可以添加到多个字段当中,也就是一张表中可以存在多个唯一约束,但是这样的单字段约束只能约束’’字段A的值在表中不重复’’,’’字段B的值在表中不重复’’,却不能约束字段A的值和字段B的值同时重复,复合唯一约束是建立在多个字段上的约束,被约束的字段不能同时重复,就是在表中复合唯一约束的两个字段,不能同时出现第二次.比如,一条数据是 (1,2),就不能再出现一条同时包含(1,2)的数据.</p>
-<p>语法:</p>
-<p>constraint 约束的名字 unique (字段A,字段B)</p>
-<p>给建好的表添加约束:</p>
-<p>alter table 表名 add constraint 约束名 unique(字段1,字段2);</p>
-<p>删除约束:</p>
-<p>alter table 表名drop index 约束名;<br>主键约束(primary key)</p>
-<p>主键约束是非常重要的,而且主键约束是外键关联的基础条件,主键约束为表之间的关联提供了链接点.</p>
-<p>主键必须能够唯一标识一条记录,也就是主键字段中的值必须是唯一的,而且不能包含null值,也可以说主键约束是唯一约束和非空约束的组合.定义主键非常简单.</p>
-<p>语法:</p>
-<p>在字段定义后 添加primary key 关键字就行.</p>
-<p>除了这种单一字段组成的主键之外,还可以有多个字段来组成主键,这样的主键被称为复合主键或者联合主键.复合主键的定义个复合唯一约束的定义类似.</p>
-<p>语法:</p>
-<p>constraint 主键名 primary key(字段1,字段2),</p>
-<p>尽管在创建表的时候定义一个主键是好习惯,但是如果表创建了没有定义主键,那么也可以在后面添加主键,不过通过这种方式添加主键有一个附件条件,那就是组成的主键的字段必须包含 not null约束,如果没有添加非空约束的字段上创建主键,系统就会报错.</p>
-<p>语法:</p>
-<p>alter table 表名 add constraint 主键名 primary key(字段1,字段2);</p>
-<p>删除主键:</p>
-<p>alter table 表名 drop primary key;</p>
-<p>自增列（主要用在给主键产生一个唯一值）<br>?<br>1<br>2<br>3<br>4</p>
-<p>create table course(<br>    cid int primary key auto_increment, /<em>产生一个自动增长的值</em>/<br>    cname varchar(10)<br>);<br>?<br>1<br>2<br>3<br>4<br>5</p>
-<p>不从1开始的例子<br>create table course(<br>    cid int primary key auto_increment, /<em>产生一个自动增长的值</em>/<br>    cname varchar(10)<br>) auto_increment=1000;</p>
-<p>注意:</p>
-<p>使用了自增赋值,就不要手动赋值,否则就会使用手动赋的值.<br>外键约束(foreign key)</p>
-<p>当一些信息在表中重复出现的时候,我们就要考虑将他们提取到另外一张表中,然后在原表中引用新创建表中的数据.</p>
-<p>在删除一个表中的数据的时候,如果有其他的表存在外键关系,那么就会删除失败.必须把所有有关的数据删除之后,才能删除成功.</p>
-<p>语法:</p>
-<p>foreign key (外键字段) references 外键表名(外键表中的主键字段)</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/03/Mysql%E7%BA%A6%E6%9D%9F%E8%AF%A6%E8%A7%A3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java接口总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/03/Java%E6%8E%A5%E5%8F%A3%E6%80%BB%E7%BB%93/">Java接口总结</a>
-    </h1>
   
 
-        
-        <a href="/2019/11/03/Java%E6%8E%A5%E5%8F%A3%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2019-11-03T06:19:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Java接口总结<br>Java不支持多继承性，即一个子类只能有一个父类；单继承使得java简单，易于管理，但如果要克服单继承性的缺点就要使用接口技术，是一个类可以实现多个接口，用关键字interface关键字来定义一个接口。<br>（1）接口声明：interface 接口名；    接口体:包括常量定义和方法定义，方法只允许声明不允许实现。<br>（2）接口使用：class A implements print,add       或者  class A extends A1 implements print,add<br>（3）当某个类使用接口的时候，必须给出所有方法的实现，方法的类型、参数一定要和接口的一致；接口的方法默认为public abstract，故类在实现时一定不能漏写public关键字；接口常量默认关键字为public static。<br>（4）因为接口中只含有public static final 常量和public abstract方法，故在写接口的时候可以省略这些关键字。<br>（5）如果接口的返回类型不是void，那么实现方法体的时候，至少要有一个return语句；如果接口的返回类型是void，可以除了大括号之外可以没有任何语句。<br>（6）Java提供的接口都在相应的包中，可以通过引入包使用相应的接口；也可以自定义接口，一个源文件就是由类和接口来组成的。<br>（7）类实现的接口的方法以及接口中的常量可以通过类的对象进行调用，常量也可以通过类名和接口名进行调用。<br>（8）接口声明的时候，如果加上关键字public，那么接口可以被任一个类进行调用，如果没有public则为友好型接口，只能被同一个包内的类进行调用。<br>（9）如果父类使用某个接口，那么子类也就使用了接口，不用再使用implements。<br>（10）接口可以通过extends继承接口。<br>（11）如果一个类声明实现一个接口但没有实现接口的所有方法，那么这个类一定得是abstract类。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/03/Java%E6%8E%A5%E5%8F%A3%E6%80%BB%E7%BB%93/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-login。jsp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/03/login%E3%80%82jsp/">login。jsp</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/03/login%E3%80%82jsp/" class="archive-article-date">
-  	<time datetime="2019-11-03T06:04:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&lt;%@ page language=”java” contentType=”text/html; charset=UTF-8”<br>    pageEncoding=”UTF-8”%&gt;<br><!DOCTYPE html></p>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>用户登录页面</title>
-</head>
-<body >
-    <h2 align="center"><font color=red>用户登录页面</font></h2>
-    <form action="success.jsp" method="post">
-    <table align="center" border="1">
-        <tr>
-            <td>用户名:</td>
-            <td><input type="text" name="name"></td>
-        </tr>
-        <tr>
-            <td>密&nbsp;&nbsp;码:</td>
-            <td><input type="text" name="password"></td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="登录" name="login"></td>
-            <td><input type="reset" value="重置" name="reset"></td>
-        </tr>
-    </table>
-    <p align="center"><a href="registered.jsp" color=blue>注册用户</a></p>
-    </form>
-
-</body>
-</html>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/03/login%E3%80%82jsp/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-面向对象总结-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/03/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%BB%E7%BB%93-1/">面向对象总结</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/03/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%BB%E7%BB%93-1/" class="archive-article-date">
-  	<time datetime="2019-11-03T05:06:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>什么是类?什么是对象?<br>简单来说,类是抽象出某一类事物的行为和特征,并进行的封装,特征称之为属性,行为称之为方法;<br>对象就是这一类的具体实例,对象拥有这个类的所有属性和方法</p>
-<p>举个例子:<br>所有的人是一个类,人所具有的属性:身高和体重…,人具有的方法:吃饭,睡觉..<br>具体到某一个人是一个对象,比如小明就是一个对象,小明有身高,体重,可以吃饭,可以睡觉..</p>
-<p>java编程思想中是这么描述对象的:<br>对象具有状态,行为,和标识.这意味着每一个对象都可以拥有内部数据(它们给出了该对象的状态)和方法(它们产生行为),并且每一个对象都可以与其他对象区分开来,具体来说,就是每一个对象在内存中都有一个唯一的地址.</p>
-<p>2,什么是面向对象?为什么要面向对象?<br>官方话:<br>面向对象（Object Oriented）是一种新兴的程序设计方法，或者是一种新的程序设计规范(paradigm)，其基本思想是使用对象、类、继承、封装、多态等基本概念来进行程序设计。从现实世界中客观存在的事物（即对象）出发来构造软件系统，并且在系统构造中尽可能运用人类的自然思维方式。面向对象是为了解决系统的可维护性，可扩展性，可重用性….<br>我的理解:<br>首先,面向对象是一种设计程序的方式,是一种设计思想.<br>其次,面向对象节省代码,思路清晰,便于扩展.你所创建出的对象就是给你提供服务的.</p>
-<p>3,面向对象的三大特征:<br>一、封装<br>　　 封装是实现面向对象程序设计的第一步，封装就是将属性和方法放在一个类中。对外提供服务时尽可能的隐藏对象内部细节，只保留有限的接口和方法;<br>　　封装的意义：<br>　　封装的意义在于保护或者防止代码（数据）被我们无意中破坏。在面向对象程序设计中属性被看作是一个中心的元素并且和使用它的方法结合的很密切，从而保护它不被其它的方法意外的修改。<br>　　可以通过对类的成员设置一定的访问权限，实现类中成员的信息隐藏。<br>    private：类中限定为private的成员，只能被这个类本身访问。如果一个类的构造方法声明为private,则其它类不能生成该类的一个实例。<br>    default：类中不加任何访问权限限定的成员属于缺省的（default）访问状态，可以被这个类本身和同一个包中的类所访问。<br>    protected：类中限定为protected的成员，可以被这个类本身、它的子类（包括同一个包中以及不同包中的子类）和同一个包中的所有其他的类访问。<br>    public：类中限定为public的成员，可以被所有的类访问。 </p>
-<p>二, 继承<br>Java的类可以分为三类：<br>    类：使用class定义，没有抽象方法<br>    抽象类：使用abstract class定义，可以有也可以没有抽象方法<br>    接口：使用inerface定义，只能有抽象方法,(也可以没有),接口里的变量默认使用public static final修饰<br>在这三个类型之间存在如下关系：<br>    类可以extends：类、抽象类（必须实现所有抽象方法），但只能extends一个，可以implements多个接口（必须实现所有接口方法）—&gt;单继承多实现<br>    抽象类可以extends：类，抽象类（可全部、部分、或者完全不实现父类抽象方法），可以implements多个接口（可全部、部分、或者完全不实现接口方法）<br>    一个接口可以继承多个接口<br>继承以后子类可以得到什么：<br>    子类直接拥有父类非private的属性和方法<br>    子类可以添加自己的属性和方法，即对父类进行扩展<br>    子类可以重写父类的方法<br>关于构造方法：<br>    构造方法不能被继承，子类可以通过super()显式调用父类的构造方法<br>    创建子类对象时，编译器会自动调用父类的无参构造方法<br>    如果父类没有定义无参构造方法，子类必须在构造方法的第一行代码使用super()显式调用<br>    类默认拥有无参构造方法，如果定义了其他有参构造方法，则无参构造方法失效，所以父类没有定义无参构造方法，不是指父类没有写无参构造方法。　<br>Java中通过super来实现对父类成员的访问，super用来引用当前对象的父类。super 的使用有三种情况：<br>    访问父类被隐藏的成员变量<br>    调用父类中被重写的方法<br>    调用父类的构造函数<br>继承的意义：<br>    代码重用是一点，最重要的还是向上转型，即父类的引用变量可以指向子类对象，这是Java面向对象最重要特性多态的基础</p>
-<p>三, 多态</p>
-<p>在了解多态之前，先了解以下几点:<br>什么是相同的方法：<br>    一个方法可以由：修饰符+返回值+方法名+参数+throw的异常+方法体6部分组成<br>    其中只有方法名和参数是唯一性标识，意即只要方法名和参数相同那他们就是相同的方法<br>    所谓参数相同，是指参数的个数，类型，顺序一致，其中任何一项不同都是不同的方法<br>什么是重载：<br>    重载是指一个类里面（包括父类的方法）存在方法名相同，但是参数不一样的方法，参数不同可以是不同的参数个数、类型或顺序<br>    如果仅仅是修饰符、返回值、throw的异常不同，那这是2个相同的方法，编译都通不过，更不要说重载了<br>什么是重写:<br>    子类中存在和父类相同的方法即为重写(有特殊情况,请注意下面重写的规则)，何谓相同方法请牢记前面的描述，方法名和参数相同，包括参数个数、类型、顺序<br>重写的规则：<br>    子类不能覆盖父类private的方法，private对子类不可见，如果子类定义了一个和父类private方法相同的方法，实为新增方法<br>    重写方法的修饰符权限一定要大于或等于被重写方法的修饰符权限(public &gt; protected &gt; default )<br>    重写抛出的异常需与父类相同或是父类异常的子类，或者重写方法干脆不写throws<br>    重写方法的返回值必须与被重写方法一致，否则编译报错<br>    静态方法不能被重写<br>什么是多态?<br>同一操作作用于不同的对象，可以产生不同的执行结果，这就是多态性。<br>Java的多态性体现在两个方面：由方法重载实现的静态多态性（编译时多态）和方法重写实现的动态多态性（运行时多态）。<br>    编译时多态：在编译阶段，具体调用哪个被重载的方法，编译器会根据参数的不同来调用相应的方法。<br>    运行时多态：当父类引用引用指向子类对象时，被引用的对象的类型决定了调用谁的方法，这个被调用的方法必须是在父类中定义过的，也就是说被子类重写的方法</p>
-<p> 1 class Animal {<br> 2     public void speak() {<br> 3         System.out.println(“我是动物”);<br> 4     }<br> 5 }<br> 6<br> 7 class Dog extends Animal {<br> 8     public void speak() {<br> 9         System.out.println(“汪汪…”);<br>10     }<br>11 }<br>12<br>13 class Cat extends Animal {<br>14     public void speak() {<br>15         System.out.println(“喵喵…”);<br>16     }<br>17 }<br>18<br>19 public class Test {<br>20     public static void main(String args[]) {<br>21         Animal animal = new Dog();<br>22         animal.speak(); // 汪汪…<br>23         animal = new Cat();<br>24         animal.speak();// 喵喵…<br>25    }<br>26 }</p>
-<p>稍微复杂一点的案例:</p>
-<p> 1 class Animal {<br> 2     public void speak1() {<br> 3         System.out.println(“我是动物..”);<br> 4         speak2();<br> 5     }<br> 6     private void speak2() {<br> 7         System.out.println(“我是一只凶猛的动物”);<br> 8     }<br> 9 }<br>10<br>11 class Dog extends Animal {<br>12     public void speak1(String name) {<br>13         System.out.println(“汪汪…”);<br>14     }<br>15     public void speak2() {<br>16         System.out.println(“我是一只泰迪”);<br>17     }<br>18 }<br>19<br>20 public class Test {<br>21     public static void main(String args[]) {<br>22         Animal animal = new Dog();<br>23         animal.speak1();<br>24         // 我是动物..<br>25         // 我是一只凶猛的动物<br>26     }<br>27 }</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/03/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%BB%E7%BB%93-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-jsp九大内置对象" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/01/jsp%E4%B9%9D%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/">jsp九大内置对象</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/01/jsp%E4%B9%9D%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/" class="archive-article-date">
-  	<time datetime="2019-11-01T00:29:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>   JSP内置对象，是指可以不加声明和创建就可以在JSP页面脚本(Java程序片和Java表达式)中使用的成员变量。<br>   JSP共有以下9种基本内置组件(可与ASP的6种内部组件相对应):</p>
-<p>1.request对象<br>   客户端的请求信息被封装在request对象中，通过它才能了解到客户的需求，然后做出响应。它是   HttpServletRequest类的实例。<br>   request对象具有请求域,即完成客户端的请求之前,该对象一直有效。</p>
-<p>序号 方 法 说 明</p>
-<p>   1 object getAttribute(String name) 返回指定属性的属性值</p>
-<p>   2 Enumeration getAttributeNames() 返回所有可用属性名的枚举</p>
-<p>   3 String getCharacterEncoding() 返回字符编码方式</p>
-<p>   4 int getContentLength() 返回请求体的长度(以字节数)</p>
-<p>   5 String getContentType() 得到请求体的MIME类型</p>
-<p>   6 ServletInputStream getInputStream() 得到请求体中一行的二进制流</p>
-<p>   7 String getParameter(String name) 返回name指定参数的参数值</p>
-<p>   8 Enumeration getParameterNames() 返回可用参数名的枚举</p>
-<p>   9 String[] getParameterValues(String name) 返回包含参数name的所有值的数组</p>
-<p>   10 String getProtocol() 返回请求用的协议类型及版本号</p>
-<p>   11 String getScheme() 返回请求用的计划名,如:http.https及ftp等</p>
-<p>   12 String getServerName() 返回接受请求的服务器主机名</p>
-<p>   13 int getServerPort() 返回服务器接受此请求所用的端口号</p>
-<p>   14 BufferedReader getReader() 返回解码过了的请求体</p>
-<p>   15 String getRemoteAddr() 返回发送此请求的客户端IP地址</p>
-<p>   16 String getRemoteHost() 返回发送此请求的客户端主机名</p>
-<p>   17 void setAttribute(String key,Object obj) 设置属性的属性值</p>
-<p>   18 StringgetRealPath(String path) 返回一虚拟路径的真实路径</p>
-<p>   19 String request.getContextPath() 返回上下文路径</p>
-<p>2.response对象<br>   response对象包含了响应客户请求的有关信息，但在JSP中很少直接用到它。它是HttpServletResponse类的实例。<br>   response对象具有页面作用域，即访问一个页面时，该页面内的response对象只能对这次访问有效，其它页面的response对象对当前页面无效。</p>
-<p>序号 方 法 说 明</p>
-<p>   1 String getCharacterEncoding() 返回响应用的是何种字符编码</p>
-<p>   2 ServletOutputStream getOutputStream() 返回响应的一个二进制输出流</p>
-<p>   3 PrintWriter getWriter() 返回可以向客户端输出字符的一个对象</p>
-<p>   4 void setContentLength(int len) 设置响应头长度</p>
-<p>   5 void setContentType(String type) 设置响应的MIME类型</p>
-<p>   6 sendRedirect(java.lang.String location) 重新定向客户端的请求</p>
-<p>3.session对象</p>
-<p>   session对象指的是客户端与服务器的一次会话，从客户端连到服务器的一个WebApplication开始，直到客户端与服务器断开连接为止。它是HttpSession类的实例。<br>   Session对象是一个JSP内置对象，它在第一个JSP页面被装载时自动创建，完成会话期管理。从一个客户打开浏览器并连接到服务器开始，到客户关闭浏览器离开这个服务器结束，被称为一个会话。当一个客户访问一个服务器时，可能会在这个服务器的几个页面之间切换，服务器应当通过某种办法知道这是一个客户，就需要Session对象。<br>   session对象具有会话作用域。</p>
-<p>序号 方 法 说 明</p>
-<p>   1 long getCreationTime() 返回SESSION创建时间</p>
-<p>   2 public String getId() 返回SESSION创建时JSP引擎为它设的唯一ID号</p>
-<p>   3 long getLastAccessedTime() 返回此SESSION里客户端最近一次请求时间</p>
-<p>   4 int getMaxInactiveInterval() 返回两次请求间隔多长时间此SESSION被取消(ms)</p>
-<p>   5 String[] getValueNames() 返回一个包含此SESSION中所有可用属性的数组</p>
-<p>   6 void invalidate() 取消SESSION，使SESSION不可用</p>
-<p>   7 boolean isNew() 返回服务器创建的一个SESSION,客户端是否已经加入</p>
-<p>   8 void removeValue(String name) 删除SESSION中指定的属性</p>
-<p>   9 void setMaxInactiveInterval() 设置两次请求间隔多长时间此SESSION被取消(ms)</p>
-<p>4.out对象<br>   out对象是JspWriter类的实例,是向客户端输出内容常用的对象</p>
-<p>序号 方 法 说 明</p>
-<p>   1 void clear() 清除缓冲区的内容</p>
-<p>   2 void clearBuffer() 清除缓冲区的当前内容</p>
-<p>   3 void flush() 清空流</p>
-<p>   4 int getBufferSize() 返回缓冲区以字节数的大小，如不设缓冲区则为0</p>
-<p>   5 int getRemaining() 返回缓冲区还剩余多少可用</p>
-<p>   6 boolean isAutoFlush() 返回缓冲区满时，是自动清空还是抛出异常</p>
-<p>   7 void close() 关闭输出流</p>
-<p>5.page对象<br>   page对象就是指向当前JSP页面本身，有点象类中的this指针，它是java.lang.Object类的实例</p>
-<p>序号 方 法 说 明</p>
-<p>   1 class getClass 返回此Object的类</p>
-<p>   2 int hashCode() 返回此Object的hash码</p>
-<p>   3 boolean equals(Object obj) 判断此Object是否与指定的Object对象相等</p>
-<p>   4 void copy(Object obj) 把此Object拷贝到指定的Object对象中</p>
-<p>   5 Object clone() 克隆此Object对象</p>
-<p>   6 String toString() 把此Object对象转换成String类的对象</p>
-<p>   7 void notify() 唤醒一个等待的线程</p>
-<p>   8 void notifyAll() 唤醒所有等待的线程</p>
-<p>   9 void wait(int timeout) 使一个线程处于等待直到timeout结束或被唤醒</p>
-<p>   10 void wait() 使一个线程处于等待直到被唤醒</p>
-<p>   11 void enterMonitor() 对Object加锁</p>
-<p>   12 void exitMonitor() 对Object开锁</p>
-<p>6.折叠application对象<br>   application对象实现了用户间数据的共享，可存放全局变量。它开始于服务器的启动，直到服务器的关闭，在此期间，此对象将一直存在;这样在用户的前后连接或不同用户之间的连接中，可以对此对象的同一属性进行操作;在任何地方对此对象属性的操作，都将影响到其他用户对此的访问。服务器的启动和关闭决定了application对象的生命。它是ServletContext类的实例。</p>
-<p>序号 方 法 说 明</p>
-<p>   1 Object getAttribute(String name) 返回给定名的属性值</p>
-<p>   2 Enumeration getAttributeNames() 返回所有可用属性名的枚举</p>
-<p>   3 void setAttribute(String name,Object obj) 设定属性的属性值</p>
-<p>   4 void removeAttribute(String name) 删除一属性及其属性值</p>
-<p>   5 String getServerInfo() 返回JSP(SERVLET)引擎名及版本号</p>
-<p>   6 String getRealPath(String path) 返回一虚拟路径的真实路径</p>
-<p>   7 ServletContext getContext(String uripath) 返回指定WebApplication的application对象</p>
-<p>   8 int getMajorVersion() 返回服务器支持的Servlet API的最大版本号</p>
-<p>   9 int getMinorVersion() 返回服务器支持的Servlet API的最小版本号</p>
-<p>   10 String getMimeType(String file) 返回指定文件的MIME类型</p>
-<p>   11 URL getResource(String path) 返回指定资源(文件及目录)的URL路径</p>
-<p>   12 InputStream getResourceAsStream(String path) 返回指定资源的输入流</p>
-<p>   13 RequestDispatcher getRequestDispatcher(String uripath) 返回指定资源的RequestDispatcher对象</p>
-<p>   14 Servlet getServlet(String name) 返回指定名的Servlet</p>
-<p>   15 Enumeration getServlets() 返回所有Servlet的枚举</p>
-<p>   16 Enumeration getServletNames() 返回所有Servlet名的枚举</p>
-<p>   17 void log(String msg) 把指定消息写入Servlet的日志文件</p>
-<p>   18 void log(Exception exception,String msg) 把指定异常的栈轨迹及错误消息写入Servlet的日志文件</p>
-<p>   19 void log(String msg,Throwable throwable) 把栈轨迹及给出的Throwable异常的说明信息 写入Servlet的日志文件</p>
-<p>7.折叠exception对象<br>   exception对象是一个例外对象，当一个页面在运行过程中发生了例外，就产生这个对象。如果一个JSP页面要应用此对象，就必须把isErrorPage设为true，否则无法编译。他实际上是java.lang.Throwable的对象</p>
-<p>序号 方 法 说 明</p>
-<p>   1 String getMessage() 返回描述异常的消息</p>
-<p>   2 String toString() 返回关于异常的简短描述消息</p>
-<p>   3 void printStackTrace() 显示异常及其栈轨迹</p>
-<p>   4 Throwable FillInStackTrace() 重写异常的执行栈轨迹</p>
-<p>8.折叠pageContext对象<br>   pageContext对象提供了对JSP页面内所有的对象及名字空间的访问，也就是说他可以访问到本页所在的SESSION，也可以取本页面所在的application的某一属性值，他相当于页面中所有功能的集大成者，它的本类名也叫pageContext。</p>
-<p>序号 方 法 说 明</p>
-<p>   1 JspWriter getOut() 返回当前客户端响应被使用的JspWriter流(out)</p>
-<p>   2 HttpSession getSession() 返回当前页中的HttpSession对象(session)</p>
-<p>   3 Object getPage() 返回当前页的Object对象(page)</p>
-<p>   4 ServletRequest getRequest() 返回当前页的ServletRequest对象(request)</p>
-<p>   5 ServletResponse getResponse() 返回当前页的ServletResponse对象(response)</p>
-<p>   6 Exception getException() 返回当前页的Exception对象(exception)</p>
-<p>   7 ServletConfig getServletConfig() 返回当前页的ServletConfig对象(config)</p>
-<p>   8 ServletContext getServletContext() 返回当前页的ServletContext对象(application)</p>
-<p>   9 void setAttribute(String name,Object attribute) 设置属性及属性值</p>
-<p>   10 void setAttribute(String name,Object obj,int scope) 在指定范围内设置属性及属性值</p>
-<p>   11 public Object getAttribute(String name) 取属性的值</p>
-<p>   12 Object getAttribute(String name,int scope) 在指定范围内取属性的值</p>
-<p>   13 public Object findAttribute(String name) 寻找一属性,返回起属性值或NULL</p>
-<p>   14 void removeAttribute(String name) 删除某属性</p>
-<p>   15 void removeAttribute(String name,int scope) 在指定范围删除某属性</p>
-<p>   16 int getAttributeScope(String name) 返回某属性的作用范围</p>
-<p>   17 Enumeration getAttributeNamesInScope(int scope) 返回指定范围内可用的属性名枚举</p>
-<p>   18 void release() 释放pageContext所占用的资源</p>
-<p>   19 void forward(String relativeUrlPath) 使当前页面重导到另一页面</p>
-<p>   20 void include(String relativeUrlPath) 在当前位置包含另一文件</p>
-<p>9.折叠config对象<br>   config对象是在一个Servlet初始化时，JSP引擎向它传递信息用的，此信息包括Servlet初始化时所要用到的参数(通过属性名和属性值构成)以及服务器的有关信息(通过传递一个ServletContext对象)</p>
-<p>序号 方 法 说 明</p>
-<p>   1 ServletContext getServletContext() 返回含有服务器相关信息的ServletContext对象</p>
-<p>   2 String getInitParameter(String name) 返回初始化参数的值</p>
-<p>   3 Enumeration getInitParameterNames() 返回Servlet初始化所需所有参数的枚举</p>
-<p>内置对象产生的时机<br>   一个JSP页面对应一个Servlet类，每个Servlet类有三个方法:</p>
-<p>   init方法:初始化JSP/Servlet的方法。</p>
-<p>   destory方法:销毁JSP/Servlet的方法。</p>
-<p>   service方法:对用户请求产生响应的方法。</p>
-<p>request对象和response对象是service方法的形参，application对象，page对象，out对象，pageContext对象，session对象都是service的方法中生成的实例。这些内容在struts自媒体网站上有详细的介绍。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/01/jsp%E4%B9%9D%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-jsp知识点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/01/jsp%E7%9F%A5%E8%AF%86%E7%82%B9/">jsp知识点</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/01/jsp%E7%9F%A5%E8%AF%86%E7%82%B9/" class="archive-article-date">
-  	<time datetime="2019-11-01T00:08:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>   JSP内置对象，是指可以不加声明和创建就可以在JSP页面脚本(Java程序片和Java表达式)中使用的成员变量。<br>   JSP共有以下9种基本内置组件(可与ASP的6种内部组件相对应):</p>
-<p>1.request对象<br>   客户端的请求信息被封装在request对象中，通过它才能了解到客户的需求，然后做出响应。它是   HttpServletRequest类的实例。<br>   request对象具有请求域,即完成客户端的请求之前,该对象一直有效。</p>
-<p>序号 方 法 说 明</p>
-<p>   1 object getAttribute(String name) 返回指定属性的属性值</p>
-<p>   2 Enumeration getAttributeNames() 返回所有可用属性名的枚举</p>
-<p>   3 String getCharacterEncoding() 返回字符编码方式</p>
-<p>   4 int getContentLength() 返回请求体的长度(以字节数)</p>
-<p>   5 String getContentType() 得到请求体的MIME类型</p>
-<p>   6 ServletInputStream getInputStream() 得到请求体中一行的二进制流</p>
-<p>   7 String getParameter(String name) 返回name指定参数的参数值</p>
-<p>   8 Enumeration getParameterNames() 返回可用参数名的枚举</p>
-<p>   9 String[] getParameterValues(String name) 返回包含参数name的所有值的数组</p>
-<p>   10 String getProtocol() 返回请求用的协议类型及版本号</p>
-<p>   11 String getScheme() 返回请求用的计划名,如:http.https及ftp等</p>
-<p>   12 String getServerName() 返回接受请求的服务器主机名</p>
-<p>   13 int getServerPort() 返回服务器接受此请求所用的端口号</p>
-<p>   14 BufferedReader getReader() 返回解码过了的请求体</p>
-<p>   15 String getRemoteAddr() 返回发送此请求的客户端IP地址</p>
-<p>   16 String getRemoteHost() 返回发送此请求的客户端主机名</p>
-<p>   17 void setAttribute(String key,Object obj) 设置属性的属性值</p>
-<p>   18 StringgetRealPath(String path) 返回一虚拟路径的真实路径</p>
-<p>   19 String request.getContextPath() 返回上下文路径</p>
-<p>2.response对象<br>   response对象包含了响应客户请求的有关信息，但在JSP中很少直接用到它。它是HttpServletResponse类的实例。<br>   response对象具有页面作用域，即访问一个页面时，该页面内的response对象只能对这次访问有效，其它页面的response对象对当前页面无效。</p>
-<p>序号 方 法 说 明</p>
-<p>   1 String getCharacterEncoding() 返回响应用的是何种字符编码</p>
-<p>   2 ServletOutputStream getOutputStream() 返回响应的一个二进制输出流</p>
-<p>   3 PrintWriter getWriter() 返回可以向客户端输出字符的一个对象</p>
-<p>   4 void setContentLength(int len) 设置响应头长度</p>
-<p>   5 void setContentType(String type) 设置响应的MIME类型</p>
-<p>   6 sendRedirect(java.lang.String location) 重新定向客户端的请求</p>
-<p>3.session对象</p>
-<p>   session对象指的是客户端与服务器的一次会话，从客户端连到服务器的一个WebApplication开始，直到客户端与服务器断开连接为止。它是HttpSession类的实例。<br>   Session对象是一个JSP内置对象，它在第一个JSP页面被装载时自动创建，完成会话期管理。从一个客户打开浏览器并连接到服务器开始，到客户关闭浏览器离开这个服务器结束，被称为一个会话。当一个客户访问一个服务器时，可能会在这个服务器的几个页面之间切换，服务器应当通过某种办法知道这是一个客户，就需要Session对象。<br>   session对象具有会话作用域。</p>
-<p>序号 方 法 说 明</p>
-<p>   1 long getCreationTime() 返回SESSION创建时间</p>
-<p>   2 public String getId() 返回SESSION创建时JSP引擎为它设的唯一ID号</p>
-<p>   3 long getLastAccessedTime() 返回此SESSION里客户端最近一次请求时间</p>
-<p>   4 int getMaxInactiveInterval() 返回两次请求间隔多长时间此SESSION被取消(ms)</p>
-<p>   5 String[] getValueNames() 返回一个包含此SESSION中所有可用属性的数组</p>
-<p>   6 void invalidate() 取消SESSION，使SESSION不可用</p>
-<p>   7 boolean isNew() 返回服务器创建的一个SESSION,客户端是否已经加入</p>
-<p>   8 void removeValue(String name) 删除SESSION中指定的属性</p>
-<p>   9 void setMaxInactiveInterval() 设置两次请求间隔多长时间此SESSION被取消(ms)</p>
-<p>4.out对象<br>   out对象是JspWriter类的实例,是向客户端输出内容常用的对象</p>
-<p>序号 方 法 说 明</p>
-<p>   1 void clear() 清除缓冲区的内容</p>
-<p>   2 void clearBuffer() 清除缓冲区的当前内容</p>
-<p>   3 void flush() 清空流</p>
-<p>   4 int getBufferSize() 返回缓冲区以字节数的大小，如不设缓冲区则为0</p>
-<p>   5 int getRemaining() 返回缓冲区还剩余多少可用</p>
-<p>   6 boolean isAutoFlush() 返回缓冲区满时，是自动清空还是抛出异常</p>
-<p>   7 void close() 关闭输出流</p>
-<p>5.page对象<br>   page对象就是指向当前JSP页面本身，有点象类中的this指针，它是java.lang.Object类的实例</p>
-<p>序号 方 法 说 明</p>
-<p>   1 class getClass 返回此Object的类</p>
-<p>   2 int hashCode() 返回此Object的hash码</p>
-<p>   3 boolean equals(Object obj) 判断此Object是否与指定的Object对象相等</p>
-<p>   4 void copy(Object obj) 把此Object拷贝到指定的Object对象中</p>
-<p>   5 Object clone() 克隆此Object对象</p>
-<p>   6 String toString() 把此Object对象转换成String类的对象</p>
-<p>   7 void notify() 唤醒一个等待的线程</p>
-<p>   8 void notifyAll() 唤醒所有等待的线程</p>
-<p>   9 void wait(int timeout) 使一个线程处于等待直到timeout结束或被唤醒</p>
-<p>   10 void wait() 使一个线程处于等待直到被唤醒</p>
-<p>   11 void enterMonitor() 对Object加锁</p>
-<p>   12 void exitMonitor() 对Object开锁</p>
-<p>6.折叠application对象<br>   application对象实现了用户间数据的共享，可存放全局变量。它开始于服务器的启动，直到服务器的关闭，在此期间，此对象将一直存在;这样在用户的前后连接或不同用户之间的连接中，可以对此对象的同一属性进行操作;在任何地方对此对象属性的操作，都将影响到其他用户对此的访问。服务器的启动和关闭决定了application对象的生命。它是ServletContext类的实例。</p>
-<p>序号 方 法 说 明</p>
-<p>   1 Object getAttribute(String name) 返回给定名的属性值</p>
-<p>   2 Enumeration getAttributeNames() 返回所有可用属性名的枚举</p>
-<p>   3 void setAttribute(String name,Object obj) 设定属性的属性值</p>
-<p>   4 void removeAttribute(String name) 删除一属性及其属性值</p>
-<p>   5 String getServerInfo() 返回JSP(SERVLET)引擎名及版本号</p>
-<p>   6 String getRealPath(String path) 返回一虚拟路径的真实路径</p>
-<p>   7 ServletContext getContext(String uripath) 返回指定WebApplication的application对象</p>
-<p>   8 int getMajorVersion() 返回服务器支持的Servlet API的最大版本号</p>
-<p>   9 int getMinorVersion() 返回服务器支持的Servlet API的最小版本号</p>
-<p>   10 String getMimeType(String file) 返回指定文件的MIME类型</p>
-<p>   11 URL getResource(String path) 返回指定资源(文件及目录)的URL路径</p>
-<p>   12 InputStream getResourceAsStream(String path) 返回指定资源的输入流</p>
-<p>   13 RequestDispatcher getRequestDispatcher(String uripath) 返回指定资源的RequestDispatcher对象</p>
-<p>   14 Servlet getServlet(String name) 返回指定名的Servlet</p>
-<p>   15 Enumeration getServlets() 返回所有Servlet的枚举</p>
-<p>   16 Enumeration getServletNames() 返回所有Servlet名的枚举</p>
-<p>   17 void log(String msg) 把指定消息写入Servlet的日志文件</p>
-<p>   18 void log(Exception exception,String msg) 把指定异常的栈轨迹及错误消息写入Servlet的日志文件</p>
-<p>   19 void log(String msg,Throwable throwable) 把栈轨迹及给出的Throwable异常的说明信息 写入Servlet的日志文件</p>
-<p>7.折叠exception对象<br>   exception对象是一个例外对象，当一个页面在运行过程中发生了例外，就产生这个对象。如果一个JSP页面要应用此对象，就必须把isErrorPage设为true，否则无法编译。他实际上是java.lang.Throwable的对象</p>
-<p>序号 方 法 说 明</p>
-<p>   1 String getMessage() 返回描述异常的消息</p>
-<p>   2 String toString() 返回关于异常的简短描述消息</p>
-<p>   3 void printStackTrace() 显示异常及其栈轨迹</p>
-<p>   4 Throwable FillInStackTrace() 重写异常的执行栈轨迹</p>
-<p>8.折叠pageContext对象<br>   pageContext对象提供了对JSP页面内所有的对象及名字空间的访问，也就是说他可以访问到本页所在的SESSION，也可以取本页面所在的application的某一属性值，他相当于页面中所有功能的集大成者，它的本类名也叫pageContext。</p>
-<p>序号 方 法 说 明</p>
-<p>   1 JspWriter getOut() 返回当前客户端响应被使用的JspWriter流(out)</p>
-<p>   2 HttpSession getSession() 返回当前页中的HttpSession对象(session)</p>
-<p>   3 Object getPage() 返回当前页的Object对象(page)</p>
-<p>   4 ServletRequest getRequest() 返回当前页的ServletRequest对象(request)</p>
-<p>   5 ServletResponse getResponse() 返回当前页的ServletResponse对象(response)</p>
-<p>   6 Exception getException() 返回当前页的Exception对象(exception)</p>
-<p>   7 ServletConfig getServletConfig() 返回当前页的ServletConfig对象(config)</p>
-<p>   8 ServletContext getServletContext() 返回当前页的ServletContext对象(application)</p>
-<p>   9 void setAttribute(String name,Object attribute) 设置属性及属性值</p>
-<p>   10 void setAttribute(String name,Object obj,int scope) 在指定范围内设置属性及属性值</p>
-<p>   11 public Object getAttribute(String name) 取属性的值</p>
-<p>   12 Object getAttribute(String name,int scope) 在指定范围内取属性的值</p>
-<p>   13 public Object findAttribute(String name) 寻找一属性,返回起属性值或NULL</p>
-<p>   14 void removeAttribute(String name) 删除某属性</p>
-<p>   15 void removeAttribute(String name,int scope) 在指定范围删除某属性</p>
-<p>   16 int getAttributeScope(String name) 返回某属性的作用范围</p>
-<p>   17 Enumeration getAttributeNamesInScope(int scope) 返回指定范围内可用的属性名枚举</p>
-<p>   18 void release() 释放pageContext所占用的资源</p>
-<p>   19 void forward(String relativeUrlPath) 使当前页面重导到另一页面</p>
-<p>   20 void include(String relativeUrlPath) 在当前位置包含另一文件</p>
-<p>9.折叠config对象<br>   config对象是在一个Servlet初始化时，JSP引擎向它传递信息用的，此信息包括Servlet初始化时所要用到的参数(通过属性名和属性值构成)以及服务器的有关信息(通过传递一个ServletContext对象)</p>
-<p>序号 方 法 说 明</p>
-<p>   1 ServletContext getServletContext() 返回含有服务器相关信息的ServletContext对象</p>
-<p>   2 String getInitParameter(String name) 返回初始化参数的值</p>
-<p>   3 Enumeration getInitParameterNames() 返回Servlet初始化所需所有参数的枚举</p>
-<p>内置对象产生的时机<br>   一个JSP页面对应一个Servlet类，每个Servlet类有三个方法:</p>
-<p>   init方法:初始化JSP/Servlet的方法。</p>
-<p>   destory方法:销毁JSP/Servlet的方法。</p>
-<p>   service方法:对用户请求产生响应的方法。</p>
-<p>request对象和response对象是service方法的形参，application对象，page对象，out对象，pageContext对象，session对象都是service的方法中生成的实例。这些内容在struts自媒体网站上有详细的介绍。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/01/jsp%E7%9F%A5%E8%AF%86%E7%82%B9/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/31/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/31/hello-world/" class="archive-article-date">
-  	<time datetime="2019-10-31T06:09:45.603Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/31/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -1248,8 +471,8 @@ xmlHttp.send(&quot;methodName = GetAllComment&amp;str1=str1&amp;str2=str2&quot;)
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
