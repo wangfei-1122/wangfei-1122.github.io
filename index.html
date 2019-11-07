@@ -151,6 +151,78 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-购物车MySQL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/07/%E8%B4%AD%E7%89%A9%E8%BD%A6MySQL/">购物车MySQL</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/07/%E8%B4%AD%E7%89%A9%E8%BD%A6MySQL/" class="archive-article-date">
+  	<time datetime="2019-11-07T06:20:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>mysql&gt; create database shoppingdb;<br>Query OK, 1 row affected</p>
+<p>mysql&gt; use shoppingdb;<br>Database changed<br>mysql&gt; create table goodsinfo(id int auto_increment primary key,goodsname varchar(255),goodsnumber int,goodsprice float);<br>Query OK, 0 rows affected</p>
+<p>mysql&gt;  insert goodsinfo values(1,’猪肉铺’,2,14.8);<br>Query OK, 1 row affected</p>
+<p>mysql&gt; insert into goodsinfo(goodsname,goodsnumber,goodsprice) values(‘每日坚果’,1,138),(‘香辣猪耳’,2,19.9),(‘水果干大礼包’,1,39.9),(‘蛋黄酥’,1,35.9),(‘巨型零食大礼包’,1,179),(‘坚果大礼包’,1,88),(‘零食大礼包’,1,58.8),(‘岩焗乳酪’,1,31.9),(‘紫米面包’,1,28.8),(‘手撕面包’,1,32.9),(‘芝士蛋糕’,1,36.9),(‘红颜脆枣’,1,26.9),(‘无骨凤爪’,1,23.8),(‘牛肉干’,1,20.8);<br>Query OK, 14 rows affected<br>Records: 14  Duplicates: 0  Warnings: 0</p>
+<p>mysql&gt; select * from goodsinfo;<br>+—-+—————-+————-+————+<br>| id | goodsname      | goodsnumber | goodsprice |<br>+—-+—————-+————-+————+<br>|  1 | 猪肉铺         |           2 |       14.8 |<br>|  2 | 每日坚果       |           1 |        138 |<br>|  3 | 香辣猪耳       |           2 |       19.9 |<br>|  4 | 水果干大礼包   |           1 |       39.9 |<br>|  5 | 蛋黄酥         |           1 |       35.9 |<br>|  6 | 巨型零食大礼包 |           1 |        179 |<br>|  7 | 坚果大礼包     |           1 |         88 |<br>|  8 | 零食大礼包     |           1 |       58.8 |<br>|  9 | 岩焗乳酪       |           1 |       31.9 |<br>| 10 | 紫米面包       |           1 |       28.8 |<br>| 11 | 手撕面包       |           1 |       32.9 |<br>| 12 | 芝士蛋糕       |           1 |       36.9 |<br>| 13 | 红颜脆枣       |           1 |       26.9 |<br>| 14 | 无骨凤爪       |           1 |       23.8 |<br>| 15 | 牛肉干         |           1 |       20.8 |<br>+—-+—————-+————-+————+<br>15 rows in set</p>
+<p>mysql&gt; select goodsname,goodsprice from goodsinfo;<br>+—————-+————+<br>| goodsname      | goodsprice |<br>+—————-+————+<br>| 猪肉铺         |       14.8 |<br>| 每日坚果       |        138 |<br>| 香辣猪耳       |       19.9 |<br>| 水果干大礼包   |       39.9 |<br>| 蛋黄酥         |       35.9 |<br>| 巨型零食大礼包 |        179 |<br>| 坚果大礼包     |         88 |<br>| 零食大礼包     |       58.8 |<br>| 岩焗乳酪       |       31.9 |<br>| 紫米面包       |       28.8 |<br>| 手撕面包       |       32.9 |<br>| 芝士蛋糕       |       36.9 |<br>| 红颜脆枣       |       26.9 |<br>| 无骨凤爪       |       23.8 |<br>| 牛肉干         |       20.8 |<br>+—————-+————+<br>15 rows in set</p>
+<p>mysql&gt; select goodsname as 商品名称,goodsnumber as 商品数量,goodsprice as 商品价格 from goodsinfo;<br>+—————-+———-+———-+<br>| 商品名称       | 商品数量 | 商品价格 |<br>+—————-+———-+———-+<br>| 猪肉铺         |        2 |     14.8 |<br>| 每日坚果       |        1 |      138 |<br>| 香辣猪耳       |        2 |     19.9 |<br>| 水果干大礼包   |        1 |     39.9 |<br>| 蛋黄酥         |        1 |     35.9 |<br>| 巨型零食大礼包 |        1 |      179 |<br>| 坚果大礼包     |        1 |       88 |<br>| 零食大礼包     |        1 |     58.8 |<br>| 岩焗乳酪       |        1 |     31.9 |<br>| 紫米面包       |        1 |     28.8 |<br>| 手撕面包       |        1 |     32.9 |<br>| 芝士蛋糕       |        1 |     36.9 |<br>| 红颜脆枣       |        1 |     26.9 |<br>| 无骨凤爪       |        1 |     23.8 |<br>| 牛肉干         |        1 |     20.8 |<br>+—————-+———-+———-+<br>15 rows in set</p>
+<p>mysql&gt; select * from goodsinfo where goodsname=’牛肉干’;<br>+—-+———–+————-+————+<br>| id | goodsname | goodsnumber | goodsprice |<br>+—-+———–+————-+————+<br>| 15 | 牛肉干    |           1 |       20.8 |<br>+—-+———–+————-+————+<br>1 row in set</p>
+<p>mysql&gt; select * from goodsinfo where goodsprice=179;<br>+—-+—————-+————-+————+<br>| id | goodsname      | goodsnumber | goodsprice |<br>+—-+—————-+————-+————+<br>|  6 | 巨型零食大礼包 |           1 |        179 |<br>+—-+—————-+————-+————+<br>1 row in set</p>
+<p>mysql&gt; </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/07/%E8%B4%AD%E7%89%A9%E8%BD%A6MySQL/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-jsp利用cookie实现永久登录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
