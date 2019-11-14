@@ -5,16 +5,16 @@
   
 
   
-  <title>Hello World | Hexo</title>
+  <title>Java接口总结 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="Java接口总结Java不支持多继承性，即一个子类只能有一个父类；单继承使得java简单，易于管理，但如果要克服单继承性的缺点就要使用接口技术，是一个类可以实现多个接口，用关键字interface关键字来定义一个接口。（1）接口声明：interface 接口名；    接口体:包括常量定义和方法定义，方法只允许声明不允许实现。（2）接口使用：class A implements print,add">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;14&#x2F;hello-world&#x2F;index.html">
+<meta property="og:title" content="Java接口总结">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;14&#x2F;Java%E6%8E%A5%E5%8F%A3%E6%80%BB%E7%BB%93&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="Java接口总结Java不支持多继承性，即一个子类只能有一个父类；单继承使得java简单，易于管理，但如果要克服单继承性的缺点就要使用接口技术，是一个类可以实现多个接口，用关键字interface关键字来定义一个接口。（1）接口声明：interface 接口名；    接口体:包括常量定义和方法定义，方法只允许声明不允许实现。（2）接口使用：class A implements print,add">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-14T09:54:15.664Z">
+<meta property="og:updated_time" content="2019-11-14T11:01:09.998Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -62,10 +62,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Java接口总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/11/14/hello-world/" class="article-date">
-  <time datetime="2019-11-14T09:54:15.664Z" itemprop="datePublished">2019-11-14</time>
+    <a href="/2019/11/14/Java%E6%8E%A5%E5%8F%A3%E6%80%BB%E7%BB%93/" class="article-date">
+  <time datetime="2019-11-14T10:59:25.000Z" itemprop="datePublished">2019-11-14</time>
 </a>
     
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Java接口总结
     </h1>
   
 
@@ -84,24 +84,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>Java接口总结<br>Java不支持多继承性，即一个子类只能有一个父类；单继承使得java简单，易于管理，但如果要克服单继承性的缺点就要使用接口技术，是一个类可以实现多个接口，用关键字interface关键字来定义一个接口。<br>（1）接口声明：interface 接口名；    接口体:包括常量定义和方法定义，方法只允许声明不允许实现。<br>（2）接口使用：class A implements print,add       或者  class A extends A1 implements print,add<br>（3）当某个类使用接口的时候，必须给出所有方法的实现，方法的类型、参数一定要和接口的一致；接口的方法默认为public abstract，故类在实现时一定不能漏写public关键字；接口常量默认关键字为public static。<br>（4）因为接口中只含有public static final 常量和public abstract方法，故在写接口的时候可以省略这些关键字。<br>（5）如果接口的返回类型不是void，那么实现方法体的时候，至少要有一个return语句；如果接口的返回类型是void，可以除了大括号之外可以没有任何语句。<br>（6）Java提供的接口都在相应的包中，可以通过引入包使用相应的接口；也可以自定义接口，一个源文件就是由类和接口来组成的。<br>（7）类实现的接口的方法以及接口中的常量可以通过类的对象进行调用，常量也可以通过类名和接口名进行调用。<br>（8）接口声明的时候，如果加上关键字public，那么接口可以被任一个类进行调用，如果没有public则为友好型接口，只能被同一个包内的类进行调用。<br>（9）如果父类使用某个接口，那么子类也就使用了接口，不用再使用implements。<br>（10）接口可以通过extends继承接口。<br>（11）如果一个类声明实现一个接口但没有实现接口的所有方法，那么这个类一定得是abstract类。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/14/hello-world/" data-id="ck2ylsjtm0003por9dka5361u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/14/Java%E6%8E%A5%E5%8F%A3%E6%80%BB%E7%BB%93/" data-id="ck2ylsjt40000por9c4f85q4q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -110,15 +98,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/11/14/cookie%E6%9C%BA%E5%88%B6/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          cookie机制
-        
-      </div>
-    </a>
   
+    <a href="/2019/11/14/jsp%E4%B9%9D%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">jsp九大内置对象</div>
+    </a>
   
 </nav>
 
