@@ -61,6 +61,47 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-cookie有效期" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/14/cookie%E6%9C%89%E6%95%88%E6%9C%9F/" class="article-date">
+  <time datetime="2019-11-14T10:35:35.000Z" itemprop="datePublished">2019-11-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/14/cookie%E6%9C%89%E6%95%88%E6%9C%9F/">cookie有效期</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Cookie的有效期<br>Cookie的maxAge决定着Cookie的有效期，单位为秒（Second）。Cookie中通过getMaxAge()方法与setMaxAge(int maxAge)方法来读写maxAge属性。 如果maxAge属性为正数，则表示该Cookie会在maxAge秒之后自动失效。浏览器会将maxAge为正数的Cookie持久化，即写到对应的Cookie文件中。无论客户关闭了浏览器还是电脑，只要还在maxAge秒之前，登录网站时该Cookie仍然有效。下面代码中的Cookie信息将永远有效。</p>
+<p><span style="color:#333333"><code>Cookie cookie = <span style="color:#0000ff">new</span> Cookie(<span style="color:#a31515">"username"</span>,<span style="color:#a31515">"helloweenvsfei"</span>); <span style="color:green">// 新建Cookie</span><br>cookie.setMaxAge(Integer.MAX_VALUE); <span style="color:green">// 设置生命周期为MAX_VALUE</span><br>response.addCookie(cookie); <span style="color:green">// 输出到客户端</span></code></span><br>如果maxAge为负数，则表示该Cookie仅在本浏览器窗口以及本窗口打开的子窗口内有效，关闭窗口后该Cookie即失效。maxAge为负数的Cookie，为临时性Cookie，不会被持久化，不会被写到Cookie文件中。Cookie信息保存在浏览器内存中，因此关闭浏览器该Cookie就消失了。Cookie默认的maxAge值为–1。</p>
+<p>如果maxAge为0，则表示删除该Cookie。Cookie机制没有提供删除Cookie的方法，因此通过设置该Cookie即时失效实现删除Cookie的效果。失效的Cookie会被浏览器从Cookie文件或者内存中删除：</p>
+<p><span style="color:#333333"><code>Cookie cookie = <span style="color:#0000ff">new</span> Cookie(<span style="color:#a31515">"username"</span>,<span style="color:#a31515">"helloweenvsfei"</span>); <span style="color:green">// 新建Cookie</span><br>cookie.setMaxAge(0); <span style="color:green">// 设置生命周期为0，不能为负数</span><br>response.addCookie(cookie); <span style="color:green">// 必须执行这一句</span></code></span><br>response对象提供的Cookie操作方法只有一个添加操作add(Cookie cookie)。要想修改Cookie只能使用一个同名的Cookie来覆盖原来的Cookie，达到修改的目的。删除时只需要把maxAge修改为0即可。</p>
+<p>注意：从客户端读取Cookie时，包括maxAge在内的其他属性都是不可读的，也不会被提交。浏览器提交Cookie时只会提交name与value属性。maxAge属性只被浏览器用来判断Cookie是否过期。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/11/14/cookie%E6%9C%89%E6%95%88%E6%9C%9F/" data-id="ck2ykwjn70000zkr931j363o3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-cookie机制" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/14/cookie%E6%9C%BA%E5%88%B6/" class="article-date">
@@ -103,7 +144,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/14/cookie%E6%9C%BA%E5%88%B6/" data-id="ck2yki756000068r920nybhgg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/14/cookie%E6%9C%BA%E5%88%B6/" data-id="ck2ykwjnk0001zkr9b2z6htvo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -152,7 +193,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/14/hello-world/" data-id="ck2yki75f000168r9hs4e7ivy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/14/hello-world/" data-id="ck2ykwjnn0002zkr93g9aez50" class="article-share-link">Share</a>
       
       
     </footer>
@@ -191,6 +232,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/11/14/cookie%E6%9C%89%E6%95%88%E6%9C%9F/">cookie有效期</a>
+          </li>
         
           <li>
             <a href="/2019/11/14/cookie%E6%9C%BA%E5%88%B6/">cookie机制</a>
