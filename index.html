@@ -61,10 +61,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Vue的难点-组件通信-1" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EL表达式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/11/20/Vue%E7%9A%84%E9%9A%BE%E7%82%B9-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1-1/" class="article-date">
-  <time datetime="2019-11-20T07:42:13.000Z" itemprop="datePublished">2019-11-20</time>
+    <a href="/2019/11/20/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="article-date">
+  <time datetime="2019-11-20T08:47:15.000Z" itemprop="datePublished">2019-11-20</time>
 </a>
     
   </div>
@@ -75,7 +75,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/20/Vue%E7%9A%84%E9%9A%BE%E7%82%B9-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1-1/">Vue的难点--组件通信</a>
+      <a class="article-title" href="/2019/11/20/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/">EL表达式</a>
     </h1>
   
 
@@ -83,48 +83,121 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>EL 全名为Expression Language</p>
+<p>EL 语法很简单，它最大的特点就是使用上很方便。接下来介绍EL主要的语法结构：</p>
+<p>${sessionScope.user.sex}</p>
+<p>所有EL都是以${为起始、以}为结尾的。上述EL范例的意思是：从Session的范围中，取得</p>
+<p>用户的性别。假若依照之前JSP Scriptlet的写法如下：</p>
+<p>User user =(User)session.getAttribute(“user”);</p>
+<p>String sex =user.getSex( );</p>
+<p>两者相比较之下，可以发现EL 的语法比传统JSP Scriptlet 更为方便、简洁。</p>
+<p>.与 [ ] 运算符</p>
+<p>EL 提供 . 和 [ ] 两种运算符来导航数据。下列两者所代表的意思是一样的：</p>
+<p>${sessionScope.user.sex}等于${sessionScope.user[“sex”]}</p>
+<p>. 和 [ ] 也可以同时混合使用，如下：</p>
+<p>${sessionScope.shoppingCart[0].price}</p>
+<p>回传结果为shoppingCart中第一项物品的价格。</p>
+<p>不过，以下两种情况，两者会有差异：</p>
+<p>(1) 当要存取的属性名称中包含一些特殊字符，如. 或 – 等并非字母或数字的符号，就一定要使用 [ ]，</p>
+<p>例如：${user.My-Name }</p>
+<p>上述是不正确的方式，应当改为：${user[“My-Name”] }</p>
+<p>(2) 我们来考虑下列情况：</p>
+<p>${sessionScope.user[data]}</p>
+<p>此时，data 是一个变量，假若data的值为”sex”时，那上述的例子等于${sessionScope.user.sex}；</p>
+<p>假若data 的值为”name”时，它就等于${sessionScope.user.name}。</p>
+<p>因此，如果要动态取值时，就可以用上述的方法来做，但. 无法做到动态取值。</p>
+<p> EL 变量</p>
+<p>EL 存取变量数据的方法很简单，例如：${username}。它的意思是取出某一范围中名称为username的变量。</p>
+<p>因为我们并没有指定哪一个范围的username，所以它的默认值会先从Page 范围找，假如找不到，</p>
+<p>再依序到Request、Session、Application范围。假如途中找到username，就直接回传，不再继续找下去，</p>
+<p>但是假如全部的范围都没有找到时，就回传null，当然EL表达式还会做出优化，页面上显示空白，而不是打印输出NULL。</p>
+<p>属性范围（jstl名称）</p>
+<p>EL中的名称</p>
+<p>Page</p>
+<p>PageScope</p>
+<p>Request</p>
+<p>RequestScope</p>
+<p>Session</p>
+<p>SessionScope</p>
+<p>Application</p>
+<p>ApplicationScope</p>
+<p>我们也可以指定要取出哪一个范围的变量：</p>
+<p>范例</p>
+<p>说明</p>
+<p>${pageScope.username}</p>
+<p>取出Page范围的username变量</p>
+<p>${requestScope.username}</p>
+<p>取出Request范围的username变量</p>
+<p>${sessionScope.username}</p>
+<p>取出Session范围的username变量</p>
+<p>${applicationScope.username}</p>
+<p>取出Application范围的username变量</p>
+<p>其中，pageScope、requestScope、sessionScope和applicationScope都是EL 的隐含对象，</p>
+<p>由它们的名称可以很容易猜出它们所代表的意思，</p>
+<p>例如：${sessionScope.username}是取出Session范围的username 变量。这种写法是不是比之前JSP 的写法：</p>
+<p>String username =(String) session.getAttribute(“username”);容易、简洁许多.</p>
+<p>自动转变类型</p>
+<p>EL 除了提供方便存取变量的语法之外，它另外一个方便的功能就是：自动转变类型，我们来看下面这个范例：</p>
+<p>${param.count + 20}</p>
+<p>假若窗体传来count的值为10时，那么上面的结果为30。之前没接触过JSP 的读者可能会认为上面的例子是理所当然的，</p>
+<p>但是在JSP 1.2 之中不能这样做，原因是从窗体所传来的值，它们的类型一律是String，所以当你接收之后，必须再将它转为其他类型，</p>
+<p>如：int、float 等等，然后才能执行一些数学运算，下面是之前的做法：</p>
+<p>String str_count =request.getParameter(“count”);</p>
+<p>int count =Integer.parseInt(str_count);</p>
+<p>count = count + 20;<br>所以，注意不要和java的语法（当字符串和数字用“+”链接时会把数字转换为字符串）搞混淆喽。</p>
+<p>EL 隐含对象</p>
+<p>JSP有9个隐含对象，而EL也有自己的隐含对象。EL隐含对象总共有11 个</p>
+<p>隐含对象</p>
+<p>类型</p>
+<p>说明</p>
+<p>PageContext</p>
+<p>javax.servlet.ServletContext</p>
+<p>表示此JSP的PageContext</p>
+<p>PageScope</p>
+<p>java.util.Map</p>
+<p>取得Page范围的属性名称所对应的值</p>
+<p>RequestScope</p>
+<p>java.util.Map</p>
+<p>取得Request范围的属性名称所对应的值</p>
+<p>sessionScope</p>
+<p>java.util.Map</p>
+<p>取得Session范围的属性名称所对应的值</p>
+<p>applicationScope</p>
+<p>java.util.Map</p>
+<p>取得Application范围的属性名称所对应的值</p>
+<p>param</p>
+<p>java.util.Map</p>
+<p>如同ServletRequest.getParameter(String name)。回传String类型的值</p>
+<p>paramValues</p>
+<p>java.util.Map</p>
+<p>如同ServletRequest.getParameterValues(String name)。回传String[]类型的值</p>
+<p>header</p>
+<p>java.util.Map</p>
+<p>如同ServletRequest.getHeader(String name)。回传String类型的值</p>
+<p>headerValues</p>
+<p>java.util.Map</p>
+<p>如同ServletRequest.getHeaders(String name)。回传String[]类型的值</p>
+<p>cookie</p>
+<p>java.util.Map</p>
+<p>如同HttpServletRequest.getCookies()</p>
+<p>initParam</p>
+<p>java.util.Map</p>
+<p>如同ServletContext.getInitParameter(String name)。回传String类型的值</p>
+<p>不过有一点要注意的是如果你要用EL输出一个常量的话，字符串要加双引号，不然的话EL会默认把你认为的常量当做一个变量来处理，</p>
+<p>这时如果这个变量在4个声明范围不存在的话会输出空，如果存在则输出该变量的值。</p>
+<p>属性(Attribute)与范围(Scope)</p>
+<p>与范围有关的EL 隐含对象包含以下四个：pageScope、requestScope、sessionScope 和</p>
+<p>applicationScope，它们基本上就和JSP的pageContext、request、session和application一样，所以笔者在这里只稍略说明。</p>
+<p>不过必须注意的是，这四个隐含对象只能用来取得范围属性值，即JSP中的getAttribute(String name)，却不能取得其他相关信息，</p>
+<p>例如：JSP中的request对象除可以存取属性之外，还可以取得用户的请求参数或表头信息等等。</p>
+<p>但是在EL中，它就只能单纯用来取得对应范围的属性值，</p>
+<p>例如：我们要在session 中储存一个属性，它的名称为username，在JSP 中使用session.getAttribute(“username”)来取得username 的值，</p>
+<p> 但是在EL中，则是使用${sessionScope.username}来取得其值的。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/20/Vue%E7%9A%84%E9%9A%BE%E7%82%B9-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1-1/" data-id="ck36zbyoa000088r95e4vhdvg" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Vue的难点-组件通信" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/11/20/Vue%E7%9A%84%E9%9A%BE%E7%82%B9-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" class="article-date">
-  <time datetime="2019-11-20T07:28:48.000Z" itemprop="datePublished">2019-11-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/20/Vue%E7%9A%84%E9%9A%BE%E7%82%B9-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/">Vue的难点--组件通信</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>组件通信<br>1.父组件传递信息给子组件<br>    子组件要想得到父组件的数据，只需要在子组件内部通过props显示的声明自己想要什么属性，是不是有点意思，就像女的问男的要东西一样，我要lv包包。声明之后父组件将数据传递给子组件就ok了，如下<br>        Vue.component(‘child’,{<br>            props: [‘message’,’myMessage’],<br>            template: ‘<span></span>‘<br>        })<br>        在父组件中使用 <child message="hello!" :my-message="parentMsg"></child> 即可<br>    注意：在子组件中不能修改父组件传递过来的数据，只能做备份来修改，并且引用类型要深拷贝<br>2.在父组件中通过传递非props属性，将自动添加到子组件根元素上面，如下<br>    <bs-date-input data-3d-date-picker="true"></bs-date-input><br>    如果子组件上面已经存在了同名属性，一般都是直接替换的，但是class和style是和子组件的class和style合并的<br>3.子组件通知父组件<br>    在子组件中触发某个事件同时v-on:click=”childfunciton”，可以通过在childfunction内部添加this.$emit(‘somefunction’)通知触发父组件中的事件，在父组件中通过v-on:somefunction=”parentfunction”接受到通知，然后触发父组件中的parentfunction事件，也就是说在父组件中，将v-on用在子组件标签上面并不是给子组件绑定事件而是监听子组件内部的消息，但是如果确实想绑定一个事件给子组件可以通过添加.native修饰符，如下<br>    <my-component v-on:click.native="doTheThing"></my-component>这个事件将直接绑定到子组件的根元素<br>4.子组件父组件数据双向绑定<br>    在父组件中的子组件标签上绑定属性使用.sync修饰符，即可完成数据双向绑定，如下<br>    <child :foo.sync="bar"></child><br>    在parent组件内部定义bar属性，即可将bar值实时的通过foo传递给子组件<br>    在子组件内部通过this.$emit(‘update:foo’,’hahahha’);可以在任意时刻修改父组件中的bar值，此函数内部其实执行的是 bar =&gt; bar = val，实际上就是直接给bar赋值，但是只能采用这种方式<br>5.其实上面说的组件通信还是基础的，下面来看一个高级点的<br>    <input v-model="something"><br>    v-model其实，就是下面的简写形式<br>    <input v-bind:value="something" v-on:input="something =  $event.target.value"><br>    同样v-model也可以用在组件身上，就是如下的样子了<br>    &lt;custom-input :value=”something” @input=”value =&gt; { something = value }”&gt;</custom-input><br>    所以知道这上面两点就可以实现自定义组件v-model功能了<br>    下面是child.vue的代码<br>        <div><br>            &lt;input type=”text” :value=”value” @input=”updateValue($event.target.value)”&gt;<br>            <br>        </div><br>        export default {<br>            props: [‘value’],<br>            methods: {<br>                updateValue(value){<br>                    this.$emit(‘input’,value)<br>                }<br>            },<br>        }<br>    下面是father.vue的代码<br>        <child v-model="price"></child><br>        data () {<br>            return {<br>                price: ‘’<br>            }<br>        }<br>    在子组件中的input中输入数据，可以动态的反应到父组件中，实现双向绑定<br>    由于默认是value和input如果想改变这个默认的，可以在子组件中，使用model如下<br>        在子组件中声明<br>        model: {<br>            prop: ‘checked’,<br>            event: ‘change’<br>        },<br>        props: {<br>            checked: Boolean,<br>            value: String<br>        }<br>    所以使用<my-checkbox v-model="foo" value="some value"></my-checkbox>其实就是下面的简写<br>    &lt;my-checkbox :checked=”foo” @change=”val =&gt; { foo = val }” value=”some value”&gt;</my-checkbox><br>6.非父子组件之间的通信<br>    非父子组件之间的通信就要使用$on了<br>    首先要有一个空的vue实例<br>        var bus = new Vue();<br>        如果你使用vue的webpack项目的话，这个东西你要单独的加在一个js文件中以store.js为例，添加如下代码<br>            import Vue from ‘vue’<br>            window.bus = new Vue();<br>        并且还要在main.js中通过import ‘./store.js’导入，这时就可以在vue项目全局使用bus了<br>    如果在一个组件中需要传递消息，就使用bus.$emit(‘fn’, 1)传递数据<br>    在要接受数据的组件中使用，bus.$on(‘fn’,function(value){…})即可<br>讲到这儿，vue最核心的部分也就将完了，弄懂这块儿东西，相信后面的学习就易如反掌了<br>7.使用slot实现内容分发<br>    实际工作中组件的组成大多数是类似下面的<br>        <parent><br>            <child><br>                <someother-component></someother-component><br>            </child><br>        </parent><br>    slot的作用就是用来处理嵌套在组件标签内部的内容<br>8.单一slot<br>    如果只有一个slot标签并且没有任何属性，slot标签将会被全部替换成嵌套在组件标签内部的内容，如果slot标签自身包裹内容，这个内容只会在组件标签内部不包含任何东西的时候展示，demo如下<br>        如果一个child组件的模板内容如下<br>        <div><br>            <h2>I’m the child title</h2><br>            <slot><br>                这里面的内容只会在没有插入内容时显示<br>            </slot><br>        </div><br>        然后<child>hahahhahahah</child><br>        那么hahahhahahah就会替换slot成为child模板的一部分<br>9.命名slot<br>    可以给slot起个名字，比如<slot name="header"></slot><br>    然后给组件标签内容添加slot属性，属性值和上面的名字相同，就可以实现特殊指派了，如<br>    <child><br>        <h1 slot="header">指定的内容</h1><br>    </child><br>    这样就实现的需求导入了<br>10.局部slot<br>    上面讲的slot都是可以实现父组件传递数据到子组件中，现在想实现将子组件中的数据传递到slot要替换的内容中<br>    可以在子组件中的slot插槽中添加任意属性，如 <slot text="子组件child中的数据"></slot><br>    然后，在子组件标签内部，如下<br>        <parent><br>            <child><br>                // 必须使用template标签，并且添加scope属性，属性值props就是包含slot传递的数据对象<br>                <template scope="props"><br>                    <span>父组件parent中的数据</span><br>                    <span></span><br>                </template><br>            </child><br>        </parent></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/20/Vue%E7%9A%84%E9%9A%BE%E7%82%B9-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" data-id="ck36zbypa000288r91apu4ifl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/20/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/" data-id="ck371o17k0000dwr9hga80sxf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -178,7 +251,7 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/15/Java%E7%9F%A5%E8%AF%86%E7%82%B9/" data-id="ck36zbyq4000688r97lua26nw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/15/Java%E7%9F%A5%E8%AF%86%E7%82%B9/" data-id="ck371o18j0005dwr9gmzhfrfs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -215,7 +288,7 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/14/Java%E6%8E%A5%E5%8F%A3%E6%80%BB%E7%BB%93/" data-id="ck36zbyop000188r91bg82s2n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/14/Java%E6%8E%A5%E5%8F%A3%E6%80%BB%E7%BB%93/" data-id="ck371o17y0001dwr96h4ga9fv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -375,7 +448,7 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/14/jsp%E4%B9%9D%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/" data-id="ck36zbyq6000788r94w87etkm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/14/jsp%E4%B9%9D%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/" data-id="ck371o18k0006dwr9dcnmcx2k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -416,7 +489,7 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/14/cookie%E6%9C%89%E6%95%88%E6%9C%9F/" data-id="ck36zbype000488r9gvoz2xg7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/14/cookie%E6%9C%89%E6%95%88%E6%9C%9F/" data-id="ck371o1830002dwr95v6kak19" class="article-share-link">Share</a>
       
       
     </footer>
@@ -468,7 +541,7 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/14/cookie%E6%9C%BA%E5%88%B6/" data-id="ck36zbypc000388r9fhsjgxm7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/14/cookie%E6%9C%BA%E5%88%B6/" data-id="ck371o1850003dwr95lcihimk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -517,7 +590,7 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/14/hello-world/" data-id="ck36zbypg000588r9almbaknh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/14/hello-world/" data-id="ck371o1880004dwr9d89sf0vm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -558,11 +631,7 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
       <ul>
         
           <li>
-            <a href="/2019/11/20/Vue%E7%9A%84%E9%9A%BE%E7%82%B9-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1-1/">Vue的难点--组件通信</a>
-          </li>
-        
-          <li>
-            <a href="/2019/11/20/Vue%E7%9A%84%E9%9A%BE%E7%82%B9-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/">Vue的难点--组件通信</a>
+            <a href="/2019/11/20/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/">EL表达式</a>
           </li>
         
           <li>
@@ -575,6 +644,10 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
         
           <li>
             <a href="/2019/11/14/jsp%E4%B9%9D%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/">jsp九大内置对象</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/14/cookie%E6%9C%89%E6%95%88%E6%9C%9F/">cookie有效期</a>
           </li>
         
       </ul>

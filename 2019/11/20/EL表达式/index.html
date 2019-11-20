@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>EL表达式 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="EL 全名为Expression Language EL 语法很简单，它最大的特点就是使用上很方便。接下来介绍EL主要的语法结构： ${sessionScope.user.sex} 所有EL都是以${为起始、以}为结尾的。上述EL范例的意思是：从Session的范围中，取得 用户的性别。假若依照之前JSP Scriptlet的写法如下： User user =(User)session.getAt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EL表达式">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;20&#x2F;EL%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="EL 全名为Expression Language EL 语法很简单，它最大的特点就是使用上很方便。接下来介绍EL主要的语法结构： ${sessionScope.user.sex} 所有EL都是以${为起始、以}为结尾的。上述EL范例的意思是：从Session的范围中，取得 用户的性别。假若依照之前JSP Scriptlet的写法如下： User user =(User)session.getAt">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-20T08:47:55.691Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-EL表达式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/20/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="article-date">
+  <time datetime="2019-11-20T08:47:15.000Z" itemprop="datePublished">2019-11-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      EL表达式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>EL 全名为Expression Language</p>
+<p>EL 语法很简单，它最大的特点就是使用上很方便。接下来介绍EL主要的语法结构：</p>
+<p>${sessionScope.user.sex}</p>
+<p>所有EL都是以${为起始、以}为结尾的。上述EL范例的意思是：从Session的范围中，取得</p>
+<p>用户的性别。假若依照之前JSP Scriptlet的写法如下：</p>
+<p>User user =(User)session.getAttribute(“user”);</p>
+<p>String sex =user.getSex( );</p>
+<p>两者相比较之下，可以发现EL 的语法比传统JSP Scriptlet 更为方便、简洁。</p>
+<p>.与 [ ] 运算符</p>
+<p>EL 提供 . 和 [ ] 两种运算符来导航数据。下列两者所代表的意思是一样的：</p>
+<p>${sessionScope.user.sex}等于${sessionScope.user[“sex”]}</p>
+<p>. 和 [ ] 也可以同时混合使用，如下：</p>
+<p>${sessionScope.shoppingCart[0].price}</p>
+<p>回传结果为shoppingCart中第一项物品的价格。</p>
+<p>不过，以下两种情况，两者会有差异：</p>
+<p>(1) 当要存取的属性名称中包含一些特殊字符，如. 或 – 等并非字母或数字的符号，就一定要使用 [ ]，</p>
+<p>例如：${user.My-Name }</p>
+<p>上述是不正确的方式，应当改为：${user[“My-Name”] }</p>
+<p>(2) 我们来考虑下列情况：</p>
+<p>${sessionScope.user[data]}</p>
+<p>此时，data 是一个变量，假若data的值为”sex”时，那上述的例子等于${sessionScope.user.sex}；</p>
+<p>假若data 的值为”name”时，它就等于${sessionScope.user.name}。</p>
+<p>因此，如果要动态取值时，就可以用上述的方法来做，但. 无法做到动态取值。</p>
+<p> EL 变量</p>
+<p>EL 存取变量数据的方法很简单，例如：${username}。它的意思是取出某一范围中名称为username的变量。</p>
+<p>因为我们并没有指定哪一个范围的username，所以它的默认值会先从Page 范围找，假如找不到，</p>
+<p>再依序到Request、Session、Application范围。假如途中找到username，就直接回传，不再继续找下去，</p>
+<p>但是假如全部的范围都没有找到时，就回传null，当然EL表达式还会做出优化，页面上显示空白，而不是打印输出NULL。</p>
+<p>属性范围（jstl名称）</p>
+<p>EL中的名称</p>
+<p>Page</p>
+<p>PageScope</p>
+<p>Request</p>
+<p>RequestScope</p>
+<p>Session</p>
+<p>SessionScope</p>
+<p>Application</p>
+<p>ApplicationScope</p>
+<p>我们也可以指定要取出哪一个范围的变量：</p>
+<p>范例</p>
+<p>说明</p>
+<p>${pageScope.username}</p>
+<p>取出Page范围的username变量</p>
+<p>${requestScope.username}</p>
+<p>取出Request范围的username变量</p>
+<p>${sessionScope.username}</p>
+<p>取出Session范围的username变量</p>
+<p>${applicationScope.username}</p>
+<p>取出Application范围的username变量</p>
+<p>其中，pageScope、requestScope、sessionScope和applicationScope都是EL 的隐含对象，</p>
+<p>由它们的名称可以很容易猜出它们所代表的意思，</p>
+<p>例如：${sessionScope.username}是取出Session范围的username 变量。这种写法是不是比之前JSP 的写法：</p>
+<p>String username =(String) session.getAttribute(“username”);容易、简洁许多.</p>
+<p>自动转变类型</p>
+<p>EL 除了提供方便存取变量的语法之外，它另外一个方便的功能就是：自动转变类型，我们来看下面这个范例：</p>
+<p>${param.count + 20}</p>
+<p>假若窗体传来count的值为10时，那么上面的结果为30。之前没接触过JSP 的读者可能会认为上面的例子是理所当然的，</p>
+<p>但是在JSP 1.2 之中不能这样做，原因是从窗体所传来的值，它们的类型一律是String，所以当你接收之后，必须再将它转为其他类型，</p>
+<p>如：int、float 等等，然后才能执行一些数学运算，下面是之前的做法：</p>
+<p>String str_count =request.getParameter(“count”);</p>
+<p>int count =Integer.parseInt(str_count);</p>
+<p>count = count + 20;<br>所以，注意不要和java的语法（当字符串和数字用“+”链接时会把数字转换为字符串）搞混淆喽。</p>
+<p>EL 隐含对象</p>
+<p>JSP有9个隐含对象，而EL也有自己的隐含对象。EL隐含对象总共有11 个</p>
+<p>隐含对象</p>
+<p>类型</p>
+<p>说明</p>
+<p>PageContext</p>
+<p>javax.servlet.ServletContext</p>
+<p>表示此JSP的PageContext</p>
+<p>PageScope</p>
+<p>java.util.Map</p>
+<p>取得Page范围的属性名称所对应的值</p>
+<p>RequestScope</p>
+<p>java.util.Map</p>
+<p>取得Request范围的属性名称所对应的值</p>
+<p>sessionScope</p>
+<p>java.util.Map</p>
+<p>取得Session范围的属性名称所对应的值</p>
+<p>applicationScope</p>
+<p>java.util.Map</p>
+<p>取得Application范围的属性名称所对应的值</p>
+<p>param</p>
+<p>java.util.Map</p>
+<p>如同ServletRequest.getParameter(String name)。回传String类型的值</p>
+<p>paramValues</p>
+<p>java.util.Map</p>
+<p>如同ServletRequest.getParameterValues(String name)。回传String[]类型的值</p>
+<p>header</p>
+<p>java.util.Map</p>
+<p>如同ServletRequest.getHeader(String name)。回传String类型的值</p>
+<p>headerValues</p>
+<p>java.util.Map</p>
+<p>如同ServletRequest.getHeaders(String name)。回传String[]类型的值</p>
+<p>cookie</p>
+<p>java.util.Map</p>
+<p>如同HttpServletRequest.getCookies()</p>
+<p>initParam</p>
+<p>java.util.Map</p>
+<p>如同ServletContext.getInitParameter(String name)。回传String类型的值</p>
+<p>不过有一点要注意的是如果你要用EL输出一个常量的话，字符串要加双引号，不然的话EL会默认把你认为的常量当做一个变量来处理，</p>
+<p>这时如果这个变量在4个声明范围不存在的话会输出空，如果存在则输出该变量的值。</p>
+<p>属性(Attribute)与范围(Scope)</p>
+<p>与范围有关的EL 隐含对象包含以下四个：pageScope、requestScope、sessionScope 和</p>
+<p>applicationScope，它们基本上就和JSP的pageContext、request、session和application一样，所以笔者在这里只稍略说明。</p>
+<p>不过必须注意的是，这四个隐含对象只能用来取得范围属性值，即JSP中的getAttribute(String name)，却不能取得其他相关信息，</p>
+<p>例如：JSP中的request对象除可以存取属性之外，还可以取得用户的请求参数或表头信息等等。</p>
+<p>但是在EL中，它就只能单纯用来取得对应范围的属性值，</p>
+<p>例如：我们要在session 中储存一个属性，它的名称为username，在JSP 中使用session.getAttribute(“username”)来取得username 的值，</p>
+<p> 但是在EL中，则是使用${sessionScope.username}来取得其值的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/11/20/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/" data-id="ck371o17k0000dwr9hga80sxf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/15/Java%E7%9F%A5%E8%AF%86%E7%82%B9/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Java知识点</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/11/20/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/">EL表达式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/15/Java%E7%9F%A5%E8%AF%86%E7%82%B9/">Java知识点</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/14/Java%E6%8E%A5%E5%8F%A3%E6%80%BB%E7%BB%93/">Java接口总结</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/14/jsp%E4%B9%9D%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/">jsp九大内置对象</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/14/cookie%E6%9C%89%E6%95%88%E6%9C%9F/">cookie有效期</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
