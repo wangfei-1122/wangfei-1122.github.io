@@ -61,6 +61,76 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ajax请求的五个步骤" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/23/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%94%E4%B8%AA%E6%AD%A5%E9%AA%A4/" class="article-date">
+  <time datetime="2019-11-23T07:10:19.000Z" itemprop="datePublished">2019-11-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/23/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%94%E4%B8%AA%E6%AD%A5%E9%AA%A4/">ajax请求的五个步骤</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>//第一步，创建XMLHttpRequest对象<br>var xmlHttp = new XMLHttpRequest();<br>function CommentAll() {<br>    //第二步，注册回调函数<br>    xmlHttp.onreadystatechange =callback1;<br>    //{<br>    //    if (xmlHttp.readyState == 4)<br>    //        if (xmlHttp.status == 200) {<br>    //            var responseText = xmlHttp.responseText;</p>
+<pre><code>//        }
+//}
+//第三步，配置请求信息，open(),get
+//get请求下参数加在url后，.ashx?methodName = GetAllComment&amp;str1=str1&amp;str2=str2
+xmlHttp.open(&quot;post&quot;, &quot;/ashx/myzhuye/Detail.ashx?methodName=GetAllComment&quot;, true);
+
+//post请求下需要配置请求头信息
+//xmlHttp.setRequestHeader(&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot;);
+
+//第四步，发送请求,post请求下，要传递的参数放这
+xmlHttp.send(&quot;methodName = GetAllComment&amp;str1=str1&amp;str2=str2&quot;);//&quot;</code></pre><p>}<br>//第五步，创建回调函数<br>function callback1() {<br>    if (xmlHttp.readyState == 4)<br>        if (xmlHttp.status == 200) {<br>            //取得返回的数据<br>            var data = xmlHttp.responseText;<br>            //json字符串转为json格式<br>            data = eval(data);<br>            $.each(data,<br>                function(i, v) {<br>                    alert(v);<br>                });<br>        }<br>}</p>
+<p>//后台方法<br> private  void GetAllComment(HttpContext context)<br>        {</p>
+<pre><code>    //Params可以取得get与post方式传递过来的值。
+    string methodName = context.Request.Params[&quot;methodName&quot;];
+
+    //QueryString只能取得get方式传递过来的值。
+    string str1 = context.Request.Form[&quot;str1&quot;];
+
+    //取得httpRequest传来的值，包括get与post方式
+    string str2 = context.Request[&quot;str2&quot;];
+
+    List&lt;string&gt; comments = new List&lt;string&gt;();
+
+    comments.Add(methodName);
+
+    comments.Add(str1);
+
+    comments.Add(str2);
+
+
+    //ajax接受的是json类型，需要把返回的数据转给json格式
+    string commentsJson = new JavaScriptSerializer().Serialize(comments);
+    context.Response.Write(commentsJson);
+}</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/11/23/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%94%E4%B8%AA%E6%AD%A5%E9%AA%A4/" data-id="ck3b8iod100010gr9d1k5gnwn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Java集合框架" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/23/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" class="article-date">
@@ -136,7 +206,7 @@ private void ensureExplicitCapacity(int minCapacity) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/23/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" data-id="ck3b80zdi0001p0r99vgh6245" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/23/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" data-id="ck3b8iod600030gr9an9r045y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -282,7 +352,7 @@ private void ensureExplicitCapacity(int minCapacity) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/20/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/" data-id="ck3b80zcw0000p0r9hca9fjym" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/20/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/" data-id="ck3b8ioci00000gr9cjk3aj25" class="article-share-link">Share</a>
       
       
     </footer>
@@ -336,7 +406,7 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/15/Java%E7%9F%A5%E8%AF%86%E7%82%B9/" data-id="ck3b80zej0006p0r91yumae62" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/15/Java%E7%9F%A5%E8%AF%86%E7%82%B9/" data-id="ck3b8iodl00070gr9hgur91h2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -373,7 +443,7 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/14/Java%E6%8E%A5%E5%8F%A3%E6%80%BB%E7%BB%93/" data-id="ck3b80zdl0002p0r9g762ba5o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/14/Java%E6%8E%A5%E5%8F%A3%E6%80%BB%E7%BB%93/" data-id="ck3b8iod400020gr9fes850b2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -533,7 +603,7 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/14/jsp%E4%B9%9D%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/" data-id="ck3b80zem0007p0r9gzgj8vhd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/14/jsp%E4%B9%9D%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/" data-id="ck3b8iodm00080gr9euyc2esp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -574,7 +644,7 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/14/cookie%E6%9C%89%E6%95%88%E6%9C%9F/" data-id="ck3b80zdn0003p0r906aw60z1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/14/cookie%E6%9C%89%E6%95%88%E6%9C%9F/" data-id="ck3b8iod800040gr950vp25ot" class="article-share-link">Share</a>
       
       
     </footer>
@@ -626,7 +696,7 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/14/cookie%E6%9C%BA%E5%88%B6/" data-id="ck3b80zdp0004p0r99tzadltw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/14/cookie%E6%9C%BA%E5%88%B6/" data-id="ck3b8ioda00050gr99jhlfcla" class="article-share-link">Share</a>
       
       
     </footer>
@@ -675,7 +745,7 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/14/hello-world/" data-id="ck3b80zdr0005p0r9g4dqfrbp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/14/hello-world/" data-id="ck3b8iode00060gr9hfb17ppu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -716,6 +786,10 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
       <ul>
         
           <li>
+            <a href="/2019/11/23/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%94%E4%B8%AA%E6%AD%A5%E9%AA%A4/">ajax请求的五个步骤</a>
+          </li>
+        
+          <li>
             <a href="/2019/11/23/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/">Java集合框架</a>
           </li>
         
@@ -729,10 +803,6 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
         
           <li>
             <a href="/2019/11/14/Java%E6%8E%A5%E5%8F%A3%E6%80%BB%E7%BB%93/">Java接口总结</a>
-          </li>
-        
-          <li>
-            <a href="/2019/11/14/jsp%E4%B9%9D%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/">jsp九大内置对象</a>
           </li>
         
       </ul>

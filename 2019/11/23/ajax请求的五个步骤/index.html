@@ -5,16 +5,16 @@
   
 
   
-  <title>Hello World | Hexo</title>
+  <title>ajax请求的五个步骤 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="&#x2F;&#x2F;第一步，创建XMLHttpRequest对象var xmlHttp = new XMLHttpRequest();function CommentAll() {    &#x2F;&#x2F;第二步，注册回调函数    xmlHttp.onreadystatechange =callback1;    &#x2F;&#x2F;{    &#x2F;&#x2F;    if (xmlHttp.readyState == 4)    &#x2F;&#x2F;        i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;14&#x2F;hello-world&#x2F;index.html">
+<meta property="og:title" content="ajax请求的五个步骤">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;23&#x2F;ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%94%E4%B8%AA%E6%AD%A5%E9%AA%A4&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="&#x2F;&#x2F;第一步，创建XMLHttpRequest对象var xmlHttp = new XMLHttpRequest();function CommentAll() {    &#x2F;&#x2F;第二步，注册回调函数    xmlHttp.onreadystatechange =callback1;    &#x2F;&#x2F;{    &#x2F;&#x2F;    if (xmlHttp.readyState == 4)    &#x2F;&#x2F;        i">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-14T09:54:15.664Z">
+<meta property="og:updated_time" content="2019-11-23T07:10:46.582Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -62,10 +62,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-ajax请求的五个步骤" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/11/14/hello-world/" class="article-date">
-  <time datetime="2019-11-14T09:54:15.664Z" itemprop="datePublished">2019-11-14</time>
+    <a href="/2019/11/23/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%94%E4%B8%AA%E6%AD%A5%E9%AA%A4/" class="article-date">
+  <time datetime="2019-11-23T07:10:19.000Z" itemprop="datePublished">2019-11-23</time>
 </a>
     
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      ajax请求的五个步骤
     </h1>
   
 
@@ -84,24 +84,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <p>//第一步，创建XMLHttpRequest对象<br>var xmlHttp = new XMLHttpRequest();<br>function CommentAll() {<br>    //第二步，注册回调函数<br>    xmlHttp.onreadystatechange =callback1;<br>    //{<br>    //    if (xmlHttp.readyState == 4)<br>    //        if (xmlHttp.status == 200) {<br>    //            var responseText = xmlHttp.responseText;</p>
+<pre><code>//        }
+//}
+//第三步，配置请求信息，open(),get
+//get请求下参数加在url后，.ashx?methodName = GetAllComment&amp;str1=str1&amp;str2=str2
+xmlHttp.open(&quot;post&quot;, &quot;/ashx/myzhuye/Detail.ashx?methodName=GetAllComment&quot;, true);
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+//post请求下需要配置请求头信息
+//xmlHttp.setRequestHeader(&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot;);
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+//第四步，发送请求,post请求下，要传递的参数放这
+xmlHttp.send(&quot;methodName = GetAllComment&amp;str1=str1&amp;str2=str2&quot;);//&quot;</code></pre><p>}<br>//第五步，创建回调函数<br>function callback1() {<br>    if (xmlHttp.readyState == 4)<br>        if (xmlHttp.status == 200) {<br>            //取得返回的数据<br>            var data = xmlHttp.responseText;<br>            //json字符串转为json格式<br>            data = eval(data);<br>            $.each(data,<br>                function(i, v) {<br>                    alert(v);<br>                });<br>        }<br>}</p>
+<p>//后台方法<br> private  void GetAllComment(HttpContext context)<br>        {</p>
+<pre><code>    //Params可以取得get与post方式传递过来的值。
+    string methodName = context.Request.Params[&quot;methodName&quot;];
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+    //QueryString只能取得get方式传递过来的值。
+    string str1 = context.Request.Form[&quot;str1&quot;];
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+    //取得httpRequest传来的值，包括get与post方式
+    string str2 = context.Request[&quot;str2&quot;];
 
+    List&lt;string&gt; comments = new List&lt;string&gt;();
+
+    comments.Add(methodName);
+
+    comments.Add(str1);
+
+    comments.Add(str2);
+
+
+    //ajax接受的是json类型，需要把返回的数据转给json格式
+    string commentsJson = new JavaScriptSerializer().Serialize(comments);
+    context.Response.Write(commentsJson);
+}</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/14/hello-world/" data-id="ck3b8iode00060gr9hfb17ppu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/23/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%94%E4%B8%AA%E6%AD%A5%E9%AA%A4/" data-id="ck3b8iod100010gr9d1k5gnwn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -110,15 +131,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/11/14/cookie%E6%9C%BA%E5%88%B6/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          cookie机制
-        
-      </div>
-    </a>
   
+    <a href="/2019/11/23/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Java集合框架</div>
+    </a>
   
 </nav>
 
