@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>jQuery有关知识点 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="jQuery语言特点；快速获取文档元素jQuery的选择机制构建于Css的选择器，它提供了快速查询DOM文档中元素的能力，而且大大强化了JavaScript中获取页面元素的方式。提供漂亮的页面动态效果jQuery中内置了一系列的动画效果，可以开发出非常漂亮的网页，许多网站都使用jQuery的内置的效果，比如淡入淡出、元素移除等动态特效。创建AJAX无刷新网页AJAX是异步的JavaScript和X">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery有关知识点">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;23&#x2F;jQuery%E6%9C%89%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="jQuery语言特点；快速获取文档元素jQuery的选择机制构建于Css的选择器，它提供了快速查询DOM文档中元素的能力，而且大大强化了JavaScript中获取页面元素的方式。提供漂亮的页面动态效果jQuery中内置了一系列的动画效果，可以开发出非常漂亮的网页，许多网站都使用jQuery的内置的效果，比如淡入淡出、元素移除等动态特效。创建AJAX无刷新网页AJAX是异步的JavaScript和X">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-23T07:21:07.936Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-jQuery有关知识点" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/23/jQuery%E6%9C%89%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/" class="article-date">
+  <time datetime="2019-11-23T07:20:34.000Z" itemprop="datePublished">2019-11-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jQuery有关知识点
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>jQuery语言特点；<br>快速获取文档元素<br>jQuery的选择机制构建于Css的选择器，它提供了快速查询DOM文档中元素的能力，而且大大强化了JavaScript中获取页面元素的方式。<br>提供漂亮的页面动态效果<br>jQuery中内置了一系列的动画效果，可以开发出非常漂亮的网页，许多网站都使用jQuery的内置的效果，比如淡入淡出、元素移除等动态特效。<br>创建AJAX无刷新网页<br>AJAX是异步的JavaScript和XML的简称，可以开发出非常灵敏无刷新的网页，特别是开发服务器端网页时，比如PHP网站，需要往返地与服务器通信，如果不使用AJAX，每次数据更新不得不重新刷新网页，而使用AJAX特效后，可以对页面进行局部刷新，提供动态的效果。<br>提供对JavaScript语言的增强<br>jQuery提供了对基本JavaScript结构的增强，比如元素迭代和数组处理等操作。<br>增强的事件处理<br>jQuery提供了各种页面事件，它可以避免程序员在HTML中添加太多事件处理代码，最重要的是，它的事件处理器消除了各种浏览器兼容性问题。<br>更改网页内容<br>jQuery可以修改网页中的内容，比如更改网页的文本、插入或者翻转网页图像，jQuery简化了原本使用JavaScript代码需要处理的方式</p>
+<p>工作原理；<br>jQuery的模块可以分为3部分：入口模块、底层支持模块和功能模块。<br>在构造jQuery对象模块中，如果在调用构造函数jQuery()创建jQuery对象时传入了选择器表达式，则会调用选择器Sizzle（一款纯JavaScript实现的CSS选择器引擎，用于查找与选择器表达式匹配的元素集合）遍历文档，查找与之匹配的DOM元素，并创建一个包含了这些DOM元素引用的jQuery对象。<br>浏览器功能测试模块提供了针对不同浏览器功能和bug的测试结果，其他模块则基于这些测试结果来解决浏览器之间的兼容性问题。<br>在底层支持模块中，回调函数列表模块用于增强对回调函数的管理，支持添加、移除、触发、锁定、禁用回调函数等功能；异步队列模块用于解耦异步任务和回调函数，它在回调函数列表的基础上为回调函数增加了状态，并提供了多个回调函数列表，支持传播任意同步或异步回调函数的成功或失败状态；数据缓存模块用于为DOM元素和Javascript对象附加任意类型的数据；队列模块用于管理一组函数，支持函数的入队和出队操作，并确保函数按顺序执行，它基于数据缓存模块实现。<br>在功能模块中，事件系统提供了统一的事件绑定、响应、手动触发和移除机制，它并没有将事件直接绑定到DOM元素上，而是基于数据缓存模块来管理事件；Ajax模块允许从服务器上加载数据，而不用刷新页面，它基于异步队列模块来管理和触发回调函数；动画模块用于向网页中添加动画效果，它基于队列模块来管理和执行动画函数；属性操作模块用于对HTML属性和DOM属性进行读取、设置和移除操作；DOM遍历模块用于在DoM树中遍历父元素、子元素和兄弟元素；DOM操作模块用于插入、移除、复制和替换DOM元素；样式操作模块用于获取计算样式或设置内联样式；坐标模块用于读取或设置DOM元素的文档坐标；尺寸模块用于获取DOM元素的高度和宽度。</p>
+<p>常用的 jQuery 事件方法；<br>$(document).ready()<br>$(document).ready() 方法允许我们在文档完全加载完后执行函数。该事件方法在jQuery 语法章节中已经提到过。<br>click()<br>click() 方法是当按钮点击事件被触发时会调用一个函数。<br>该函数在用户点击 HTML 元素时执行。<br>在下面的实例中，当点击事件在某个 <p> 元素上触发时，隐藏当前的 <p> 元素：<br>1<br>2<br>3<br>$(“p”).click(function(){<br>    $(this).hide();<br>});<br>dblclick()<br>当双击元素时，会发生 dblclick 事件。<br>dblclick() 方法触发 dblclick 事件，或规定当发生 dblclick 事件时运行的函数：<br>1<br>2<br>3<br>$(“p”).dblclick(function(){<br>    $(this).hide();<br>});<br>mouseenter()<br>当鼠标指针穿过元素时，会发生 mouseenter 事件。<br>mouseenter() 方法触发 mouseenter 事件，或规定当发生 mouseenter 事件时运行的函数。<br>1<br>2<br>3<br>$(“#p1”).mouseenter(function(){<br>    alert(“You entered p1!”);<br>});<br>mouseleave()<br>当鼠标指针离开元素时，会发生 mouseleave 事件。<br>mouseleave() 方法触发 mouseleave 事件，或规定当发生 mouseleave 事件时运行的函数：<br>1<br>2<br>3<br>$(“#p1”).mouseleave(function(){<br>    alert(“Bye! You now leave p1!”);<br>});<br>mousedown()<br>当鼠标指针移动到元素上方，并按下鼠标按键时，会发生 mousedown 事件。<br>mousedown() 方法触发 mousedown 事件，或规定当发生 mousedown 事件时运行的函数：<br>1<br>2<br>3<br>$(“#p1”).mousedown(function(){<br>    alert(“Mouse down over p1!”);<br>});<br>mouseup()<br>当在元素上松开鼠标按钮时，会发生 mouseup 事件。<br>方法触发 mouseup 事件，或规定当发生 mouseup 事件时运行的函数：<br>1<br>2<br>3<br>$(“#p1”).mouseup(function(){<br>    alert(“Mouse up over p1!”);<br>});<br>hover()<br>hover()方法用于模拟光标悬停事件。<br>当鼠标移动到元素上时，会触发指定的第一个函数（mouseenter）；当鼠标移出这个元素时，会触发指定的第二个函数（mouseleave）。<br>1<br>2<br>3<br>4<br>5<br>6<br>$(“#p1”).hover(function(){<br>    alert(“You entered p1!”);<br>    },<br>    function(){<br>    alert(“Bye! You now leave p1!”);<br>});<br>focus()<br>当元素获得焦点时，发生focus事件。<br>当通过鼠标点击选中元素或通过tab键定位到元素时，该元素就会获得焦点。<br>focus()方法触发 focus 事件，或规定当发生focus事件时运行的函数。<br>1<br>2<br>3<br>$(“input”).focus(function(){<br>    $(this).css(“background-color”,”#cccccc”);<br>});<br>blur()<br>当元素失去焦点时，发生 blur 事件。<br>blur() 方法触发 blur 事件，或规定当发生 blur 事件时运行的函数：<br>1<br>2<br>3<br>$(“input”).blur(function(){<br>    $(this).css(“background-color”,”#ffffff”);<br>});</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/11/23/jQuery%E6%9C%89%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/" data-id="ck3b8w0vt0008pgr9gw4n2blj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/23/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%94%E4%B8%AA%E6%AD%A5%E9%AA%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ajax请求的五个步骤</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/11/23/jQuery%E6%9C%89%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/">jQuery有关知识点</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/23/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%94%E4%B8%AA%E6%AD%A5%E9%AA%A4/">ajax请求的五个步骤</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/23/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/">Java集合框架</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/20/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/">EL表达式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/15/Java%E7%9F%A5%E8%AF%86%E7%82%B9/">Java知识点</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
