@@ -61,6 +61,118 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Jstl标签详解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/25/Jstl%E6%A0%87%E7%AD%BE%E8%AF%A6%E8%A7%A3/" class="article-date">
+  <time datetime="2019-11-25T00:40:42.000Z" itemprop="datePublished">2019-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/25/Jstl%E6%A0%87%E7%AD%BE%E8%AF%A6%E8%A7%A3/">Jstl标签详解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Jstl标签详解</p>
+<p>&lt;%@ taglib %&gt;引入标签库</p>
+<p>1、以classPath中，加入jar包：  standard-1.1.2.jar ，  jstl-1.1.2.jar</p>
+<p>2、在相目\WEB-INF\tld\文件夹中放入常用的tld文件：c.tld，fmt.tld</p>
+<p>3、在jsp文件的顶部加入以下内容：</p>
+<p>Java代码  收藏代码<br>&lt;%@ taglib uri=”<a href="http://java.sun.com/jsp/jstl/core&quot;" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/core&quot;</a> prefix=”c” %&gt;<br>&lt;%@ taglib uri=”<a href="http://java.sun.com/jsp/jstl/fmt&quot;" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/fmt&quot;</a> prefix=”fmt”%&gt;<br>&lt;%@ taglib uri=”<a href="http://java.sun.com/jsp/jstl/functions&quot;" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/functions&quot;</a> prefix=”fn” %&gt;  </p>
+<p>&lt;c:&gt; 核心标签库 </p>
+<p>JSTL 核心标签库(C标签)标签共有13个，功能上分为4类：<br>1.表达式控制标签：out、set、remove、catch<br>2.流程控制标签：if、choose、when、otherwise<br>3.循环标签：forEach、forTokens<br>4.URL操作标签：import、url、redirect</p>
+<p>&lt;c:forEach&gt; 标签</p>
+<p>为循环控制，它可以将集合(Collection)中的成员循序浏览一遍。</p>
+<p> &lt;c:forEach&gt; 标签的语法 说明 ：</p>
+<p>语法1：迭代一集合对象之所有成员</p>
+<p>Html代码  收藏代码<br>&lt;c:forEach [var=”varName”] items=”collection” [varStatus=”varStatusName”] [begin=”begin”] [end=”end”] [step=”step”]&gt;<br>本体内容<br></c:forEach><br>语法2：迭代指定的次数</p>
+<p>Html代码  收藏代码<br>&lt;c:forEach [var=”varName”] [varStatus=”varStatusName”] begin=”begin” end=”end” [step=”step”]&gt;<br>本体内容<br></c:forEach>  </p>
+<p>&lt;c:forEach&gt; 标签的 属性 ： varStatus属性： 它的提供另外四个属性:index,count,fist和last，它们个自的意义如下:</p>
+<p>Java代码  收藏代码<br>属性                   类型                                  意义<br>index                  number                    现在指到成员的索引<br>count                  number                    总共指到成员的总和<br>first                  boolean                   现在指到成员是否为第一个<br>last                   boolean                   现在指到成员是否为最后一个   </p>
+<p> &lt;c:forEach&gt; 遍历 List列表：</p>
+<p> 对于一个基本类型的数组，当前元素将作为相应包装类（Integer、Float等等）的一个实例提供。</p>
+<p>Html代码  收藏代码<br>&lt;c:forEach items=”${domainList }” var=”item”&gt;  </p>
+<tr>  
+  <td align="center" valign="middle">${item["domain"]==null?"&nbsp;":item["domain"]}</td>  
+  <td align="center" valign="middle"><fmt:formatDate value="${item['bind_date']}" pattern="yyyy-MM-dd HH:mm:ss"/></td>  
+  <td align="center" valign="middle">  
+    <c:if test="${item['domain']!=null}">  
+    <a href="javascript:;" target="_blank" rel="noopener" id="${item['domain']}" class="del">&nbsp;</a>  
+    </c:if>  
+    </td>  
+</tr>    
+</c:forEach>  
+
+
+<p> &lt;c:forEach&gt; 遍历Map:</p>
+<p> 对于一个java.util.Map，当前元素则作为一个java.util.Map.Entry提供。</p>
+<p>Html代码  收藏代码<br>&lt;c:if test=”${!empty permissionMap}”&gt;<br>&lt;c:forEach items=”${permissionMap}” var=”item”&gt;  </p>
+<tr>  
+    <td>${item.value.id}</td>  
+    <td>${item.value.urlOnClass}</td>  
+    <td>${item.value.urlOnMethod}</td>  
+</tr>  
+</c:forEach>  
+</c:if>    
+ <c:forTokens> 标签
+
+
+
+<p>用来浏览一字符串中所有的成员，其成员是由定义符号(delimiters)所分隔的。</p>
+<p> &lt;c:forTokens&gt; 标签的语法 说明 ：</p>
+<p>Html代码  收藏代码<br>&lt;c:forTokens items=”stringOfTokens” delims=”delimiters” [var=”varName”]<br>[varStatus=”varStatusName”] [begin=”begin”] [end=”end”] [step=”step”]&gt;<br>本体内容<br></c:forTokens>  </p>
+<p>&lt;c:out&gt; 标签</p>
+<p>主要用来显示数据的内容</p>
+<p> &lt;c:out&gt; 标签的语法 说明 ：</p>
+<p>语法1：没有本体(body)内容</p>
+<p>Html代码  收藏代码<br>&lt;c:out value=”value” [escapeXml=”{true|false}”] [default=”defaultValue”] /&gt;  </p>
+<p>语法2：有本体内容</p>
+<p>Html代码  收藏代码<br>&lt;c:out value=”value” [escapeXml=”{true|false}”]&gt;<br>default value<br></c:out><br>&lt;c:forEach&gt; 标签的 属性说明 ： 略</p>
+<p>一般来说，&lt;c:out&gt;默认会将&lt;、&gt;、’、” 和 &amp; 转换为 &lt;、&gt;、&#039;、&#034; 和&amp;。假若不想转换时，只需要设定&lt;c:out&gt;的escapeXml属性为fasle就可以了。</p>
+<p>&lt;c:set&gt; 标签</p>
+<p>主要用来将变量储存至JSP范围中或是JavaBean的属性中。</p>
+<p> &lt;c:set&gt; 标签的语法 说明 ：</p>
+<p>语法1：将value的值储存至范围为scope的 varName 变量之中</p>
+<p>Html代码  收藏代码<br>&lt;c:set value=”value” var=”varName” [scope=”{ page|request|session|application }”]/&gt;  </p>
+<p>语法2：将本体内容的数据储存至范围为scope的 varName 变量之中</p>
+<p>Html代码  收藏代码<br>&lt;c:set var=”varName” [scope=”{ page|request|session|application }”]&gt;<br>… 本体内容<br></c:set>  </p>
+<p>语法3：将 value的值储存至 target 对象的属性中</p>
+<p>Html代码  收藏代码<br>&lt;c:set value=”value” target=”target” property=”propertyName” /&gt;  </p>
+<p>语法4：将本体内容的数据储存至target 对象的属性中</p>
+<p>Html代码  收藏代码<br>&lt;c:set target=”target” property=”propertyName”&gt;<br>… 本体内容<br></c:set>  </p>
+<p>&lt;c:set&gt; 标签的 属性说明 ：</p>
+<p>&lt;c:remove&gt; 标签</p>
+<p>主要用来移除变量。</p>
+<p> &lt;c:remove&gt; 标签的语法 说明 ：</p>
+<p>Html代码  收藏代码<br>&lt;c:remove var=”varName” [scope=”{ age|request|session|application }”] /&gt;  </p>
+<p>&lt;c:catch&gt; 标签</p>
+<p>主要用来处理产生错误的异常状况，并且将错误信息储存起来。</p>
+<p> &lt;c:catch&gt; 标签的语法 说明 ：</p>
+<p>Html代码  收藏代码<br>&lt;c:catch [var=”varName”] &gt;<br>… 欲抓取错误的部分<br></c:catch>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/11/25/Jstl%E6%A0%87%E7%AD%BE%E8%AF%A6%E8%A7%A3/" data-id="ck3dphrt70001rwr99k385usj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-jQuery有关知识点" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/23/jQuery%E6%9C%89%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/" class="article-date">
@@ -90,7 +202,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/23/jQuery%E6%9C%89%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/" data-id="ck3b8w0vt0008pgr9gw4n2blj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/23/jQuery%E6%9C%89%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/" data-id="ck3dphrtq0007rwr9f7jpb4c4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -160,7 +272,7 @@ xmlHttp.send(&quot;methodName = GetAllComment&amp;str1=str1&amp;str2=str2&quot;)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/23/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%94%E4%B8%AA%E6%AD%A5%E9%AA%A4/" data-id="ck3b8w0u10000pgr95pqrg40j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/23/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%94%E4%B8%AA%E6%AD%A5%E9%AA%A4/" data-id="ck3dphrtt0008rwr95cli3mzv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -245,7 +357,7 @@ private void ensureExplicitCapacity(int minCapacity) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/23/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" data-id="ck3b8w0ur0002pgr9h0ae8zri" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/23/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" data-id="ck3dphrto0006rwr92b2l3xt7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -391,7 +503,7 @@ private void ensureExplicitCapacity(int minCapacity) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/20/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/" data-id="ck3b8w0uo0001pgr9fvd0csj9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/20/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/" data-id="ck3dphrtd0002rwr99dvt57lr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -445,7 +557,7 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/15/Java%E7%9F%A5%E8%AF%86%E7%82%B9/" data-id="ck3b8w0vr0007pgr946yx41ua" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/15/Java%E7%9F%A5%E8%AF%86%E7%82%B9/" data-id="ck3dphruh0009rwr9ca0jgn57" class="article-share-link">Share</a>
       
       
     </footer>
@@ -482,7 +594,7 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/14/Java%E6%8E%A5%E5%8F%A3%E6%80%BB%E7%BB%93/" data-id="ck3b8w0ut0003pgr98dzbdizw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/14/Java%E6%8E%A5%E5%8F%A3%E6%80%BB%E7%BB%93/" data-id="ck3dphrs50000rwr9hab688ov" class="article-share-link">Share</a>
       
       
     </footer>
@@ -642,7 +754,7 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/14/jsp%E4%B9%9D%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/" data-id="ck3b8w0w60009pgr943wodptp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/14/jsp%E4%B9%9D%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/" data-id="ck3dphruk000arwr926w61d7j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -683,7 +795,7 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/14/cookie%E6%9C%89%E6%95%88%E6%9C%9F/" data-id="ck3b8w0uw0004pgr9h8nf79wk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/14/cookie%E6%9C%89%E6%95%88%E6%9C%9F/" data-id="ck3dphrth0003rwr9fuoggft3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -735,56 +847,7 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/14/cookie%E6%9C%BA%E5%88%B6/" data-id="ck3b8w0ux0005pgr92zvvcc4b" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/11/14/hello-world/" class="article-date">
-  <time datetime="2019-11-14T09:54:15.664Z" itemprop="datePublished">2019-11-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/14/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/14/hello-world/" data-id="ck3b8w0uz0006pgr957zsde0c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/14/cookie%E6%9C%BA%E5%88%B6/" data-id="ck3dphrtn0005rwr9019l3qi8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -795,6 +858,11 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
 
   
 
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+  </nav>
 
 </section>
         
@@ -825,6 +893,10 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
       <ul>
         
           <li>
+            <a href="/2019/11/25/Jstl%E6%A0%87%E7%AD%BE%E8%AF%A6%E8%A7%A3/">Jstl标签详解</a>
+          </li>
+        
+          <li>
             <a href="/2019/11/23/jQuery%E6%9C%89%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/">jQuery有关知识点</a>
           </li>
         
@@ -838,10 +910,6 @@ new SInner().test();</code></pre><p>}<br>}<br>(2)成员内部类：访问外部�
         
           <li>
             <a href="/2019/11/20/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/">EL表达式</a>
-          </li>
-        
-          <li>
-            <a href="/2019/11/15/Java%E7%9F%A5%E8%AF%86%E7%82%B9/">Java知识点</a>
           </li>
         
       </ul>

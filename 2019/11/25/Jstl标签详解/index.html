@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Jstl标签详解 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Jstl标签详解 &amp;lt;%@ taglib %&amp;gt;引入标签库 1、以classPath中，加入jar包：  standard-1.1.2.jar ，  jstl-1.1.2.jar 2、在相目\WEB-INF\tld\文件夹中放入常用的tld文件：c.tld，fmt.tld 3、在jsp文件的顶部加入以下内容： Java代码  收藏代码&amp;lt;%@ taglib uri=”http:&#x2F;&#x2F;ja">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jstl标签详解">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;25&#x2F;Jstl%E6%A0%87%E7%AD%BE%E8%AF%A6%E8%A7%A3&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Jstl标签详解 &amp;lt;%@ taglib %&amp;gt;引入标签库 1、以classPath中，加入jar包：  standard-1.1.2.jar ，  jstl-1.1.2.jar 2、在相目\WEB-INF\tld\文件夹中放入常用的tld文件：c.tld，fmt.tld 3、在jsp文件的顶部加入以下内容： Java代码  收藏代码&amp;lt;%@ taglib uri=”http:&#x2F;&#x2F;ja">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-25T00:41:30.399Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Jstl标签详解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/25/Jstl%E6%A0%87%E7%AD%BE%E8%AF%A6%E8%A7%A3/" class="article-date">
+  <time datetime="2019-11-25T00:40:42.000Z" itemprop="datePublished">2019-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Jstl标签详解
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Jstl标签详解</p>
+<p>&lt;%@ taglib %&gt;引入标签库</p>
+<p>1、以classPath中，加入jar包：  standard-1.1.2.jar ，  jstl-1.1.2.jar</p>
+<p>2、在相目\WEB-INF\tld\文件夹中放入常用的tld文件：c.tld，fmt.tld</p>
+<p>3、在jsp文件的顶部加入以下内容：</p>
+<p>Java代码  收藏代码<br>&lt;%@ taglib uri=”<a href="http://java.sun.com/jsp/jstl/core&quot;" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/core&quot;</a> prefix=”c” %&gt;<br>&lt;%@ taglib uri=”<a href="http://java.sun.com/jsp/jstl/fmt&quot;" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/fmt&quot;</a> prefix=”fmt”%&gt;<br>&lt;%@ taglib uri=”<a href="http://java.sun.com/jsp/jstl/functions&quot;" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/functions&quot;</a> prefix=”fn” %&gt;  </p>
+<p>&lt;c:&gt; 核心标签库 </p>
+<p>JSTL 核心标签库(C标签)标签共有13个，功能上分为4类：<br>1.表达式控制标签：out、set、remove、catch<br>2.流程控制标签：if、choose、when、otherwise<br>3.循环标签：forEach、forTokens<br>4.URL操作标签：import、url、redirect</p>
+<p>&lt;c:forEach&gt; 标签</p>
+<p>为循环控制，它可以将集合(Collection)中的成员循序浏览一遍。</p>
+<p> &lt;c:forEach&gt; 标签的语法 说明 ：</p>
+<p>语法1：迭代一集合对象之所有成员</p>
+<p>Html代码  收藏代码<br>&lt;c:forEach [var=”varName”] items=”collection” [varStatus=”varStatusName”] [begin=”begin”] [end=”end”] [step=”step”]&gt;<br>本体内容<br></c:forEach><br>语法2：迭代指定的次数</p>
+<p>Html代码  收藏代码<br>&lt;c:forEach [var=”varName”] [varStatus=”varStatusName”] begin=”begin” end=”end” [step=”step”]&gt;<br>本体内容<br></c:forEach>  </p>
+<p>&lt;c:forEach&gt; 标签的 属性 ： varStatus属性： 它的提供另外四个属性:index,count,fist和last，它们个自的意义如下:</p>
+<p>Java代码  收藏代码<br>属性                   类型                                  意义<br>index                  number                    现在指到成员的索引<br>count                  number                    总共指到成员的总和<br>first                  boolean                   现在指到成员是否为第一个<br>last                   boolean                   现在指到成员是否为最后一个   </p>
+<p> &lt;c:forEach&gt; 遍历 List列表：</p>
+<p> 对于一个基本类型的数组，当前元素将作为相应包装类（Integer、Float等等）的一个实例提供。</p>
+<p>Html代码  收藏代码<br>&lt;c:forEach items=”${domainList }” var=”item”&gt;  </p>
+<tr>  
+  <td align="center" valign="middle">${item["domain"]==null?"&nbsp;":item["domain"]}</td>  
+  <td align="center" valign="middle"><fmt:formatDate value="${item['bind_date']}" pattern="yyyy-MM-dd HH:mm:ss"/></td>  
+  <td align="center" valign="middle">  
+    <c:if test="${item['domain']!=null}">  
+    <a href="javascript:;" target="_blank" rel="noopener" id="${item['domain']}" class="del">&nbsp;</a>  
+    </c:if>  
+    </td>  
+</tr>    
+</c:forEach>  
+
+
+<p> &lt;c:forEach&gt; 遍历Map:</p>
+<p> 对于一个java.util.Map，当前元素则作为一个java.util.Map.Entry提供。</p>
+<p>Html代码  收藏代码<br>&lt;c:if test=”${!empty permissionMap}”&gt;<br>&lt;c:forEach items=”${permissionMap}” var=”item”&gt;  </p>
+<tr>  
+    <td>${item.value.id}</td>  
+    <td>${item.value.urlOnClass}</td>  
+    <td>${item.value.urlOnMethod}</td>  
+</tr>  
+</c:forEach>  
+</c:if>    
+ <c:forTokens> 标签
+
+
+
+<p>用来浏览一字符串中所有的成员，其成员是由定义符号(delimiters)所分隔的。</p>
+<p> &lt;c:forTokens&gt; 标签的语法 说明 ：</p>
+<p>Html代码  收藏代码<br>&lt;c:forTokens items=”stringOfTokens” delims=”delimiters” [var=”varName”]<br>[varStatus=”varStatusName”] [begin=”begin”] [end=”end”] [step=”step”]&gt;<br>本体内容<br></c:forTokens>  </p>
+<p>&lt;c:out&gt; 标签</p>
+<p>主要用来显示数据的内容</p>
+<p> &lt;c:out&gt; 标签的语法 说明 ：</p>
+<p>语法1：没有本体(body)内容</p>
+<p>Html代码  收藏代码<br>&lt;c:out value=”value” [escapeXml=”{true|false}”] [default=”defaultValue”] /&gt;  </p>
+<p>语法2：有本体内容</p>
+<p>Html代码  收藏代码<br>&lt;c:out value=”value” [escapeXml=”{true|false}”]&gt;<br>default value<br></c:out><br>&lt;c:forEach&gt; 标签的 属性说明 ： 略</p>
+<p>一般来说，&lt;c:out&gt;默认会将&lt;、&gt;、’、” 和 &amp; 转换为 &lt;、&gt;、&#039;、&#034; 和&amp;。假若不想转换时，只需要设定&lt;c:out&gt;的escapeXml属性为fasle就可以了。</p>
+<p>&lt;c:set&gt; 标签</p>
+<p>主要用来将变量储存至JSP范围中或是JavaBean的属性中。</p>
+<p> &lt;c:set&gt; 标签的语法 说明 ：</p>
+<p>语法1：将value的值储存至范围为scope的 varName 变量之中</p>
+<p>Html代码  收藏代码<br>&lt;c:set value=”value” var=”varName” [scope=”{ page|request|session|application }”]/&gt;  </p>
+<p>语法2：将本体内容的数据储存至范围为scope的 varName 变量之中</p>
+<p>Html代码  收藏代码<br>&lt;c:set var=”varName” [scope=”{ page|request|session|application }”]&gt;<br>… 本体内容<br></c:set>  </p>
+<p>语法3：将 value的值储存至 target 对象的属性中</p>
+<p>Html代码  收藏代码<br>&lt;c:set value=”value” target=”target” property=”propertyName” /&gt;  </p>
+<p>语法4：将本体内容的数据储存至target 对象的属性中</p>
+<p>Html代码  收藏代码<br>&lt;c:set target=”target” property=”propertyName”&gt;<br>… 本体内容<br></c:set>  </p>
+<p>&lt;c:set&gt; 标签的 属性说明 ：</p>
+<p>&lt;c:remove&gt; 标签</p>
+<p>主要用来移除变量。</p>
+<p> &lt;c:remove&gt; 标签的语法 说明 ：</p>
+<p>Html代码  收藏代码<br>&lt;c:remove var=”varName” [scope=”{ age|request|session|application }”] /&gt;  </p>
+<p>&lt;c:catch&gt; 标签</p>
+<p>主要用来处理产生错误的异常状况，并且将错误信息储存起来。</p>
+<p> &lt;c:catch&gt; 标签的语法 说明 ：</p>
+<p>Html代码  收藏代码<br>&lt;c:catch [var=”varName”] &gt;<br>… 欲抓取错误的部分<br></c:catch>  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/11/25/Jstl%E6%A0%87%E7%AD%BE%E8%AF%A6%E8%A7%A3/" data-id="ck3dphrt70001rwr99k385usj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/23/jQuery%E6%9C%89%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">jQuery有关知识点</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/11/25/Jstl%E6%A0%87%E7%AD%BE%E8%AF%A6%E8%A7%A3/">Jstl标签详解</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/23/jQuery%E6%9C%89%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/">jQuery有关知识点</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/23/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%94%E4%B8%AA%E6%AD%A5%E9%AA%A4/">ajax请求的五个步骤</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/23/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/">Java集合框架</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/20/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/">EL表达式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
