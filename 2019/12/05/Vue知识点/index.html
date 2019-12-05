@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Vue知识点 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Vue知识点总结 一、 组件component  什么是组件？组件（Component）是 Vue.js 最强大的功能之一。组件可以扩展 HTML 元素，封装可重用的代码组件是自定义元素（对象）   定义组件的方式 方式1：先创建组件构造器，然后由组件构造器创建组件 方式2：直接创建组件  组件的分类分类：全局组件、局部组件  引用模板将组件内容放到模板中并引用  动态组件组件  多个组件使用同一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue知识点">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;05&#x2F;Vue%E7%9F%A5%E8%AF%86%E7%82%B9&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Vue知识点总结 一、 组件component  什么是组件？组件（Component）是 Vue.js 最强大的功能之一。组件可以扩展 HTML 元素，封装可重用的代码组件是自定义元素（对象）   定义组件的方式 方式1：先创建组件构造器，然后由组件构造器创建组件 方式2：直接创建组件  组件的分类分类：全局组件、局部组件  引用模板将组件内容放到模板中并引用  动态组件组件  多个组件使用同一">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-12-05T09:39:40.212Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Vue知识点" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/05/Vue%E7%9F%A5%E8%AF%86%E7%82%B9/" class="article-date">
+  <time datetime="2019-12-05T09:37:59.000Z" itemprop="datePublished">2019-12-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue知识点
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Vue知识点总结</p>
+<p>一、 组件component</p>
+<ol>
+<li>什么是组件？<br>组件（Component）是 Vue.js 最强大的功能之一。组件可以扩展 HTML 元素，封装可重用的代码<br>组件是自定义元素（对象）</li>
+</ol>
+<ol start="2">
+<li><p>定义组件的方式<br> 方式1：先创建组件构造器，然后由组件构造器创建组件<br> 方式2：直接创建组件</p>
+<ol start="3">
+<li><p>组件的分类<br>分类：全局组件、局部组件</p>
+</li>
+<li><p>引用模板<br>将组件内容放到模板<template>中并引用</p>
+</li>
+<li><p>动态组件<br><component :is="">组件<br>  多个组件使用同一个挂载点，然后动态的在它们之间切换    </p>
+<p><keep-alive>组件    </p>
+</li>
+</ol>
+</li>
+</ol>
+<p> 二、 组件间数据传递</p>
+<ol>
+<li><p>父子组件<br> 在一个组件内部定义另一个组件，称为父子组件<br> 子组件只能在父组件内部使用<br> 默认情况下，子组件无法访问父组件中的数据，每个组件实例的作用域是独立的</p>
+<ol start="2">
+<li>组件间数据传递 （通信）</li>
+</ol>
+<p>2.1 子组件访问父组件的数据<br> a)在调用子组件时，绑定想要获取的父组件中的数据<br> b)在子组件内部，使用props选项声明获取的数据，即接收来自父组件的数据<br> 总结：父组件通过props向下传递数据给子组件<br> 注：组件中的数据共有三种形式：data、props、computed</p>
+<p>2.2 父组件访问子组件的数据<br> a)在子组件中使用vm.$emit(事件名,数据)触发一个自定义事件，事件名自定义<br> b)父组件在使用子组件的地方监听子组件触发的事件，并在父组件中定义方法，用来获取数据<br> 总结：子组件通过events给父组件发送消息，实际上就是子组件把自己的数据发送到父组件</p>
+<ol start="3">
+<li><p>单向数据流<br>props是单向绑定的，当父组件的属性变化时，将传导给子组件，但是不会反过来<br>而且不允许子组件直接修改父组件中的数据，报错<br>解决方式：<br>  方式1：如果子组件想把它作为局部数据来使用，可以将数据存入另一个变量中再操作，不影响父组件中的数据<br>  方式2：如果子组件想修改数据并且同步更新到父组件，两个方法：</p>
+<pre><code>a.使用.sync（1.0版本中支持，2.0版本中不支持，2.3版本又开始支持）
+    需要显式地触发一个更新事件
+b.可以将父组件中的数据包装成对象，然后在子组件中修改对象的属性(因为对象是引用类型，指向同一个内存空间)，推荐    </code></pre></li>
+<li><p>非父子组件间的通信<br>非父子组件间的通信，可以通过一个空的Vue实例作为中央事件总线（事件中心），用它来触发事件和监听事件</p>
+<p>var Event=new Vue();<br>Event.$emit(事件名,数据);<br>Event.$on(事件名,data =&gt; {});</p>
+</li>
+</ol>
+</li>
+</ol>
+<p> 三、 slot内容分发<br>    本意：位置、槽<br>    作用：用来获取组件中的原内容，类似angular中的transclude指令</p>
+<p>四、 vue-router路由</p>
+<ol>
+<li>简介<br> 使用Vue.js开发SPA（Single Page Application）单页面应用<br> 根据不同url地址，显示不同的内容，但显示在同一个页面中，称为单页面应用</li>
+</ol>
+<ol start="2">
+<li><p>基本用法<br>a.布局<br>b.配置路由</p>
+</li>
+<li><p>路由嵌套和参数传递<br>传参的两种形式：</p>
+<pre><code>a.查询字符串：login?name=tom&amp;pwd=123
+    {{$route.query}}
+b.rest风格url：regist/alice/456
+    {{$route.params}}</code></pre></li>
+</ol>
+<ol start="4">
+<li><p>路由实例的方法<br>router.push()  添加路由，功能上与<route-link>相同<br>router.replace() 替换路由，不产生历史记录    </p>
+<p>五、 单文件组件</p>
+</li>
+<li><p>.vue文件<br>.vue文件，称为单文件组件，是Vue.js自定义的一种文件格式，一个.vue文件就是一个单独的组件，在文件内封装了组件相关的代码：html、css、js</p>
+<p>.vue文件由三部分组成：<template>、<style>、<script></p>
+<pre><code>&lt;template&gt;
+    html
+&lt;/template&gt;
+
+&lt;style&gt;
+    css
+&lt;/style&gt;
+
+&lt;script&gt;
+    js
+&lt;/script&gt;</code></pre></li>
+<li><p>vue-loader<br>浏览器本身并不认为.vue文件，所以必须对.vue文件进行加载解析，此时需要vue-loader<br>类似的loader还有许多，如：html-loader、css-loader、style-loader、babel-loader等<br>需要注意的是vue-loader是基于webpack的     </p>
+</li>
+<li><p>webpack<br>webpack是一个前端资源模板化加载器和打包工具，它能够把各种资源都作为模块来使用和处理<br>实际上，webpack是通过不同的loader将这些资源加载后打包，然后输出打包后文件<br>简单来说，webpack就是一个模块加载器，所有资源都可以作为模块来加载，最后打包输出</p>
+<p>webpack有一个核心配置文件：webpack.config.js，必须放在项目根目录下</p>
+</li>
+<li><p>示例，步骤：</p>
+</li>
+<li><p>1 创建项目，目录结构 如下：<br>webpack-demo<br> |-index.html<br> |-main.js   入口文件<br> |-App.vue   vue文件<br> |-package.json  工程文件<br> |-webpack.config.js  webpack配置文件<br> |-.babelrc   Babel配置文件</p>
+<p>六、 vue-cli脚手架 </p>
+</li>
+<li><p>简介<br>vue-cli是一个vue脚手架，可以快速构造项目结构<br>vue-cli本身集成了多种项目模板：</p>
+<pre><code>simple  很少简单
+webpack 包含ESLint代码规范检查和unit单元测试等
+webpack-simple 没有代码规范检查和单元测试
+browserify 使用的也比较多
+browserify-simple</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/05/Vue%E7%9F%A5%E8%AF%86%E7%82%B9/" data-id="ck3sj4l8l0000dgr9fkobdm2w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/25/Jstl%E6%A0%87%E7%AD%BE%E8%AF%A6%E8%A7%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Jstl标签详解</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/12/05/Vue%E7%9F%A5%E8%AF%86%E7%82%B9/">Vue知识点</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/25/Jstl%E6%A0%87%E7%AD%BE%E8%AF%A6%E8%A7%A3/">Jstl标签详解</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/23/jQuery%E6%9C%89%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/">jQuery有关知识点</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/23/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%94%E4%B8%AA%E6%AD%A5%E9%AA%A4/">ajax请求的五个步骤</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/23/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/">Java集合框架</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
